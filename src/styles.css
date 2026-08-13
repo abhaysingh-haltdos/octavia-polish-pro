@@ -1,0 +1,174 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@import "./site/site.css";
+@source "../src";
+
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-white: var(--brand-white);
+  --color-brand-azure: var(--brand-azure);
+  --color-brand-dark: var(--brand-dark);
+  --color-brand-grey: var(--brand-grey);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-ink: var(--brand-ink);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Octavia brand palette (single source of truth)
+     White #FEFEFE · Azure #264868 · Dark Blue #153758 · Grey Blue #93A3B2 · Gold #C1A972 */
+  --brand-white: oklch(0.997 0 89.88);
+  --brand-azure: oklch(0.3915 0.0677 248.59);
+  --brand-dark: oklch(0.3296 0.0707 250.26);
+  --brand-grey: oklch(0.7078 0.0285 246.48);
+  --brand-gold: oklch(0.7429 0.0778 86.93);
+  --brand-ink: oklch(0.2485 0.0417 246.16);
+
+  --background: var(--brand-white);
+  --foreground: var(--brand-dark);
+  --card: var(--brand-white);
+  --card-foreground: var(--brand-dark);
+  --popover: var(--brand-white);
+  --popover-foreground: var(--brand-dark);
+  --primary: var(--brand-azure);
+  --primary-foreground: var(--brand-white);
+  --secondary: oklch(0.9692 0.0034 247.86);
+  --secondary-foreground: var(--brand-azure);
+  --muted: oklch(0.9692 0.0034 247.86);
+  --muted-foreground: oklch(0.5200 0.0420 248.00);
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-dark);
+  --destructive: oklch(0.55 0.19 27);
+  --destructive-foreground: var(--brand-white);
+  --border: oklch(0.9321 0.0069 247.90);
+  --input: oklch(0.9321 0.0069 247.90);
+  --ring: var(--brand-azure);
+  --chart-1: var(--brand-azure);
+  --chart-2: var(--brand-dark);
+  --chart-3: var(--brand-grey);
+  --chart-4: var(--brand-gold);
+  --chart-5: var(--brand-ink);
+  --sidebar: var(--brand-white);
+  --sidebar-foreground: var(--brand-dark);
+  --sidebar-primary: var(--brand-azure);
+  --sidebar-primary-foreground: var(--brand-white);
+  --sidebar-accent: oklch(0.9692 0.0034 247.86);
+  --sidebar-accent-foreground: var(--brand-azure);
+  --sidebar-border: oklch(0.9321 0.0069 247.90);
+  --sidebar-ring: var(--brand-azure);
+}
+
+.dark {
+  --background: var(--brand-ink);
+  --foreground: var(--brand-white);
+  --card: var(--brand-dark);
+  --card-foreground: var(--brand-white);
+  --popover: var(--brand-dark);
+  --popover-foreground: var(--brand-white);
+  --primary: var(--brand-gold);
+  --primary-foreground: var(--brand-dark);
+  --secondary: var(--brand-azure);
+  --secondary-foreground: var(--brand-white);
+  --muted: var(--brand-azure);
+  --muted-foreground: var(--brand-grey);
+  --accent: var(--brand-gold);
+  --accent-foreground: var(--brand-dark);
+  --destructive: oklch(0.62 0.19 27);
+  --destructive-foreground: var(--brand-white);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: var(--brand-gold);
+  --chart-1: var(--brand-gold);
+  --chart-2: var(--brand-grey);
+  --chart-3: var(--brand-azure);
+  --chart-4: var(--brand-white);
+  --chart-5: var(--brand-dark);
+  --sidebar: var(--brand-dark);
+  --sidebar-foreground: var(--brand-white);
+  --sidebar-primary: var(--brand-gold);
+  --sidebar-primary-foreground: var(--brand-dark);
+  --sidebar-accent: var(--brand-azure);
+  --sidebar-accent-foreground: var(--brand-white);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: var(--brand-gold);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+  }
+}
