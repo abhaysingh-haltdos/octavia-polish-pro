@@ -1,0 +1,973 @@
+import { ServicePageData } from '../types/service';
+
+export const SOFTWARE_DEVELOPMENT_SUBPAGES: Record<string, ServicePageData> = {
+  // Main Software Development Category Page
+  'software-development': {
+    id: 'software-development',
+    serviceCategory: 'Software Development Services',
+    metaTitle: 'Custom Software & Enterprise Engineering Services | Octavia Tech Solutions',
+    seo: {
+      h1: 'Enterprise Software Development Services',
+      metaTitle: 'Custom Software & Enterprise Engineering Services | Octavia Tech Solutions',
+      metaDescription: 'Scale operations with custom software development, cloud-native microservices, SaaS engineering, legacy modernization, and API integration by Octavia Tech Solutions.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+      ],
+    },
+    hero: {
+      badge: 'Software Engineering Solutions',
+      title: 'Enterprise Software Development',
+      titleHighlight: 'Services',
+      description: 'Engineer high-performance, secure, and resilient software applications tailored to your business operations. From SaaS platforms to cloud-native microservices, we build scalable software systems.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Approach',
+      graphicBadge: 'Cloud Architecture & APIs',
+      graphicTitle: 'High-Availability Systems',
+      graphicSubtext: 'Microservices architecture, automated CI/CD deployment, and 99.99% uptime SLAs.',
+      tags: ['Custom Software', 'SaaS Platforms', 'Microservices & APIs', 'Legacy Modernization'],
+    },
+    overview: {
+      badge: 'WHAT IS SOFTWARE DEVELOPMENT',
+      heading: 'Software Engineering Explained',
+      leadParagraph: 'Software Development is the end-to-end discipline of designing, architecting, coding, testing, and deploying tailored software systems that power critical business workflows.',
+      secondaryParagraph: 'At Octavia Tech Solutions, our software engineering team builds custom web and cloud applications, multi-tenant SaaS products, secure API gateways, and enterprise integrations to accelerate business productivity.',
+      pillars: [
+        { title: 'Cloud-Native Scale', description: 'Containerized microservices engineered for elastic auto-scaling under peak traffic.', iconName: 'Server' },
+        { title: 'Enterprise Security', description: 'Bank-grade encryption, OAuth2/OIDC, RBAC, and SOC2/HIPAA compliance controls.', iconName: 'ShieldCheck' },
+        { title: 'API Integration', description: 'Seamless data exchange between CRMs, ERPs, payment gateways, and third-party systems.', iconName: 'Network' },
+        { title: 'Continuous Reliability', description: 'Automated CI/CD pipelines, automated unit testing, and sub-15min SLA response times.', iconName: 'Clock' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Enterprise Software Engineering Matters',
+      subheading: 'Outdated legacy monoliths and off-the-shelf software limit operational efficiency and block business growth.',
+      challenges: [
+        {
+          id: 'sdc1',
+          category: 'Operational Efficiency',
+          issue: 'Automate Manual & Repetitive Workflows',
+          impact: 'Reduce operational friction and increase employee productivity by up to 60%.',
+          description: 'Tailored software replaces slow manual processes with automated background data processing.',
+        },
+        {
+          id: 'sdc2',
+          category: 'Scalability',
+          issue: 'Eliminate Performance & Downtime Bottlenecks',
+          impact: 'Ensure seamless system stability during rapid business expansion.',
+          description: 'Modular microservice architectures expand dynamically without breaking existing services.',
+        },
+        {
+          id: 'sdc3',
+          category: 'System Integration',
+          issue: 'Connect Siloed Business Systems & Data',
+          impact: 'Unify company data across sales, logistics, and finance teams in real time.',
+          description: 'Custom API gateways connect legacy infrastructure with modern cloud platforms.',
+        },
+        {
+          id: 'sdc4',
+          category: 'Competitive Advantage',
+          issue: 'Outperform Competitors with Custom Features',
+          impact: 'Deliver unique customer experiences that off-the-shelf SaaS cannot match.',
+          description: 'Bespoke software gives you 100% control over product features, IP, and roadmap.',
+        },
+        {
+          id: 'sdc5',
+          category: 'Data Security',
+          issue: 'Protect Sensitive Enterprise & User Data',
+          impact: 'Comply with strict GDPR, HIPAA, and SOC2 regulatory standards.',
+          description: 'Hardware-backed encryption and zero-trust auth protect data at rest and in transit.',
+        },
+        {
+          id: 'sdc6',
+          category: 'ROI & Total Cost',
+          issue: 'Lower Long-Term IT Maintenance Costs',
+          impact: 'Avoid recurring per-user licensing fees from generic commercial software.',
+          description: 'Custom-owned software assets build long-term enterprise value with zero licensing lock-in.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Everything Included in Our Software Development Services',
+      subheading: 'Comprehensive software engineering solutions tailored across technical domains.',
+      categories: ['Custom Development', 'Architecture & Integration', 'Modernization & Maintenance'],
+      features: [
+        {
+          id: 'sdf1',
+          title: 'Custom Software Development',
+          category: 'Custom Development',
+          iconName: 'Code2',
+          badge: 'Core Service',
+          businessBenefit: 'Tailored to Business Logic',
+          description: 'End-to-end custom application development designed specifically around your proprietary workflows.',
+          points: ['Modular Microservices', 'React/Next.js & Node/Python', 'Cloud-Native Deployment'],
+        },
+        {
+          id: 'sdf2',
+          title: 'Enterprise Software Development',
+          category: 'Custom Development',
+          iconName: 'Building2',
+          businessBenefit: 'High Reliability at Scale',
+          description: 'Mission-critical enterprise applications supporting high throughput, complex permissions, and audit compliance.',
+          points: ['Multi-Tenant SaaS', 'Role-Based Access Control (RBAC)', 'High Availability Clusters'],
+        },
+        {
+          id: 'sdf3',
+          title: 'API & Microservices Engineering',
+          category: 'Architecture & Integration',
+          iconName: 'Network',
+          businessBenefit: 'Seamless Interoperability',
+          description: 'RESTful, GraphQL, and gRPC backend microservices connecting disparate enterprise applications.',
+          points: ['Sub-50ms API Response', 'OAuth2 / JWT Security', 'Automated OpenAPI Spec'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Software Development FAQ',
+      subheading: 'Answers about tech stacks, IP ownership, and delivery timelines.',
+      faqs: [
+        {
+          question: 'Who owns the source code and intellectual property (IP)?',
+          answer: 'You retain 100% ownership of all source code, IP rights, database schemas, and documentation upon project completion.',
+        },
+        {
+          question: 'Which tech stacks do you specialize in for software engineering?',
+          answer: 'We specialize in Node.js, Python, Go, Java, React, TypeScript, PostgreSQL, Docker, Kubernetes, AWS, GCP, and Azure.',
+        },
+        {
+          question: 'How do you handle software testing and quality assurance?',
+          answer: 'We enforce automated unit testing, integration testing, static code analysis, and CI/CD pipelines to ensure zero regression bugs.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'SOFTWARE CONSULTATION',
+      heading: 'Ready to Build Custom Enterprise Software?',
+      description: 'Consult with our senior software architects to plan your platform architecture.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Tech Stack',
+    },
+  },
+
+  // 1. Custom Software Development
+  'custom-software-development': {
+    id: 'custom-software-development',
+    serviceCategory: 'Custom Software Development Services',
+    metaTitle: 'Custom Software Development Services | Bespoke Solutions | Octavia Tech Solutions',
+    seo: {
+      h1: 'Custom Software Development Services',
+      metaTitle: 'Custom Software Development Services | Bespoke Solutions | Octavia Tech Solutions',
+      metaDescription: 'Engineered bespoke software tailored to your specific enterprise requirements. Scale productivity with high-performance web, mobile, and cloud software applications.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/custom-software-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Custom Software Development', href: '/services/software-development/custom-software-development' },
+      ],
+    },
+    hero: {
+      badge: 'Bespoke Software Engineering',
+      title: 'Custom Software Development',
+      titleHighlight: 'Services',
+      description: 'Build tailored software platforms engineered to your exact business specifications. We design, code, and scale bespoke applications that automate complex operations and deliver measurable ROI.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Capabilities',
+      tags: ['100% IP Ownership', 'Tailored Workflows', 'Scalable Microservices', 'Cloud-Native Security'],
+    },
+    overview: {
+      badge: 'WHAT IS CUSTOM SOFTWARE',
+      heading: 'Custom Software Engineering Explained',
+      leadParagraph: 'Custom Software Development involves designing and building software products exclusively for your company’s unique business logic, operational demands, and strategic goals.',
+      secondaryParagraph: 'Unlike generic off-the-shelf software, custom applications integrate seamlessly into existing IT environments, eliminate recurring per-user licensing fees, and deliver a sustainable competitive advantage.',
+      pillars: [
+        { title: '100% Custom Architecture', description: 'Zero bloated or unnecessary code. Built strictly around your operational workflow.', iconName: 'Code2' },
+        { title: 'Full IP & Code Rights', description: 'Complete ownership of source code, proprietary algorithms, and data structures.', iconName: 'ShieldCheck' },
+        { title: 'Seamless Integration', description: 'Native API connections to your existing ERP, CRM, and databases.', iconName: 'Network' },
+        { title: 'Future-Proof Scalability', description: 'Elastic microservices designed to grow alongside your expanding business demands.', iconName: 'Zap' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Custom Software Development Matters',
+      subheading: 'Generic software forces companies into rigid workflows. Custom engineering unlocks full operational control.',
+      challenges: [
+        {
+          id: 'csd1',
+          category: 'Workflow Alignment',
+          issue: 'Stop Compromising with Generic SaaS Bottlenecks',
+          impact: 'Eliminate manual workarounds and boost employee productivity.',
+          description: 'Tailored software fits your exact business operations without forcing manual data entry.',
+        },
+        {
+          id: 'csd2',
+          category: 'Cost Control',
+          issue: 'Eliminate Escalating Subscription Licensing Fees',
+          impact: 'Reduce recurring IT expenditures as your team expands.',
+          description: 'Owning custom software means zero per-seat monthly fees.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Custom Software Engineering Service',
+      subheading: 'End-to-end bespoke development tailored across technology stacks.',
+      categories: ['Architecture & Design', 'Engineering', 'Deployment'],
+      features: [
+        {
+          id: 'csdf1',
+          title: 'Bespoke Application Engineering',
+          category: 'Engineering',
+          iconName: 'Code2',
+          badge: 'Popular',
+          businessBenefit: '100% Tailored Workflows',
+          description: 'Full-stack software design utilizing React, Node.js, Python, and cloud-native databases.',
+          points: ['Modular Clean Architecture', 'Automated QA Testing', 'Secure API Endpoints'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Custom Software FAQ',
+      subheading: 'Answers about timeline, scope, and ownership.',
+      faqs: [
+        {
+          question: 'How long does it take to develop a custom software application?',
+          answer: 'MVP developments typically take 8 to 12 weeks, while full enterprise custom platforms take 3 to 6 months depending on scope.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'CUSTOM SOFTWARE AUDIT',
+      heading: 'Need Custom Software Built for Your Business?',
+      description: 'Talk to our senior software architects to review your requirements.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Capabilities',
+    },
+  },
+
+  // 2. Enterprise Software Development
+  'enterprise-software-development': {
+    id: 'enterprise-software-development',
+    serviceCategory: 'Enterprise Software Development Services',
+    metaTitle: 'Enterprise Software Development Services | Octavia Tech Solutions',
+    seo: {
+      h1: 'Enterprise Software Development Services',
+      metaTitle: 'Enterprise Software Development Services | Octavia Tech Solutions',
+      metaDescription: 'Build mission-critical enterprise software engineered for high availability, security compliance, multi-region database replication, and zero downtime.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/enterprise-software-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Enterprise Software Development', href: '/services/software-development/enterprise-software-development' },
+      ],
+    },
+    hero: {
+      badge: 'Enterprise Engineering',
+      title: 'Enterprise Software Development',
+      titleHighlight: 'Services',
+      description: 'Deploy high-throughput, mission-critical enterprise platforms built to process millions of transactions. We engineer secure, multi-tenant enterprise software with 99.99% availability SLAs.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Enterprise Specs',
+      tags: ['99.99% Availability SLA', 'SOC2 & HIPAA Compliant', 'Multi-Tenant Microservices', 'High-Throughput APIs'],
+    },
+    overview: {
+      badge: 'WHAT IS ENTERPRISE SOFTWARE',
+      heading: 'Enterprise Software Architecture Explained',
+      leadParagraph: 'Enterprise Software Development focuses on large-scale, complex software solutions designed to support organization-wide business operations, security standards, and high-concurrency workloads.',
+      secondaryParagraph: 'From enterprise resource planning (ERP) platforms to secure financial transaction systems, Octavia Tech Solutions builds fault-tolerant architectures with automated disaster recovery.',
+      pillars: [
+        { title: 'High Availability (99.99%)', description: 'Multi-region cloud deployments with zero-downtime rolling updates.', iconName: 'Server' },
+        { title: 'Enterprise Governance', description: 'Granular Role-Based Access Control (RBAC), SSO (SAML/Okta), and audit logging.', iconName: 'ShieldCheck' },
+        { title: 'High Concurrency Processing', description: 'Event-driven Kafka/RabbitMQ messaging processing thousands of requests per second.', iconName: 'Zap' },
+        { title: 'Regulatory Compliance', description: 'Strict adherence to HIPAA, SOC2 Type II, ISO 27001, and GDPR controls.', iconName: 'Lock' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Enterprise Software Engineering Matters',
+      subheading: 'Enterprise downtime causes catastrophic revenue losses and compliance penalties.',
+      challenges: [
+        {
+          id: 'esd1',
+          category: 'System Reliability',
+          issue: 'Prevent System Outages During Traffic Surges',
+          impact: 'Protect enterprise revenue and corporate SLA commitments.',
+          description: 'Distributed database clustering and auto-scaling prevent server crashes.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Enterprise Software Engineering Service',
+      subheading: 'Enterprise-grade features engineered for multi-region organizations.',
+      categories: ['Security & SSO', 'Distributed Data', 'High Availability'],
+      features: [
+        {
+          id: 'esdf1',
+          title: 'Single Sign-On (SSO) & RBAC Security',
+          category: 'Security & SSO',
+          iconName: 'ShieldCheck',
+          badge: 'Enterprise Security',
+          businessBenefit: 'Centralized Identity Governance',
+          description: 'SAML 2.0, OpenID Connect, and OAuth integration for Okta, Azure AD, and Ping Identity.',
+          points: ['Okta & Azure AD Integration', 'Multi-Factor Auth (MFA)', 'Granular Audit Logging'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Enterprise Software FAQ',
+      subheading: 'Answers about security standards and SLAs.',
+      faqs: [
+        {
+          question: 'What security standards do your enterprise platforms adhere to?',
+          answer: 'We design according to OWASP Top 10 guidelines, ISO 27001 policies, SOC2 Type II compliance controls, and HIPAA data encryption.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'ENTERPRISE AUDIT',
+      heading: 'Need High-Availability Enterprise Software?',
+      description: 'Schedule a security and architecture discovery session with our engineers.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Enterprise Specs',
+    },
+  },
+
+  // 3. Software Product Development
+  'software-product-development': {
+    id: 'software-product-development',
+    serviceCategory: 'Software Product Development Services',
+    metaTitle: 'Software Product Development Services | Octavia Tech Solutions',
+    seo: {
+      h1: 'Software Product Development Services',
+      metaTitle: 'Software Product Development Services | Octavia Tech Solutions',
+      metaDescription: 'Transform software product concepts into market-ready SaaS and digital platforms. End-to-end product design, MVP development, and agile product engineering.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/software-product-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Software Product Development', href: '/services/software-development/software-product-development' },
+      ],
+    },
+    hero: {
+      badge: 'Product Engineering',
+      title: 'Software Product Development',
+      titleHighlight: 'Services',
+      description: 'Turn your software vision into a commercial product. We partner with tech startups and enterprises to design, build, launch, and scale market-leading digital software products.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Product Roadmap',
+      tags: ['Product Discovery', 'MVP Development', 'User-Centric UX', 'Agile Product Sprints'],
+    },
+    overview: {
+      badge: 'WHAT IS PRODUCT DEVELOPMENT',
+      heading: 'Software Product Lifecycle Explained',
+      leadParagraph: 'Software Product Development is the strategic process of creating commercial software products from initial discovery to MVP launch and continuous feature expansion.',
+      secondaryParagraph: 'Octavia Tech Solutions combines product design (UI/UX), agile software engineering, and customer analytics to ensure your digital product achieves product-market fit rapidly.',
+      pillars: [
+        { title: 'Product Discovery & Scope', description: 'Defining target personas, wireframes, technical architecture, and feature backlogs.', iconName: 'Target' },
+        { title: 'Rapid MVP Launch', description: 'Building functional Minimum Viable Products in 8 to 12 weeks to validate market demand.', iconName: 'Zap' },
+        { title: 'User-Centric UX Design', description: 'Designing intuitive, high-conversion interfaces that maximize user retention.', iconName: 'Layout' },
+        { title: 'Agile Feature Iteration', description: 'Two-week sprint cycles driven by user feedback and data analytics.', iconName: 'RefreshCw' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Professional Product Engineering Matters',
+      subheading: 'Building software without clear product direction leads to feature bloat and wasted capital.',
+      challenges: [
+        {
+          id: 'spd1',
+          category: 'Time-to-Market',
+          issue: 'Accelerate Launch Before Competitors',
+          impact: 'Capture early market share and secure investor funding.',
+          description: 'Agile MVP methodologies get core features to users fast.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Software Product Development Service',
+      subheading: 'End-to-end product design and agile software engineering.',
+      categories: ['Product Design', 'MVP & Launch', 'Product Scaling'],
+      features: [
+        {
+          id: 'spdf1',
+          title: 'MVP Engineering & Prototype Launch',
+          category: 'MVP & Launch',
+          iconName: 'Zap',
+          badge: 'Fast Delivery',
+          businessBenefit: 'Fast Market Validation',
+          description: 'Rapid development of key product features designed to test product-market fit.',
+          points: ['8-12 Week Delivery', 'Scalable React/Node Stack', 'Analytics Integration'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Software Product FAQ',
+      subheading: 'Answers about product discovery and MVP launch.',
+      faqs: [
+        {
+          question: 'How do you help us define the Minimum Viable Product (MVP) scope?',
+          answer: 'We run a 1-week Product Discovery workshop to prioritize essential user features, technical prerequisites, and launch timelines.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'PRODUCT CONSULTATION',
+      heading: 'Have a Software Product Idea to Build?',
+      description: 'Discuss your product vision with our product managers and engineers.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Product Roadmap',
+    },
+  },
+
+  // 4. SaaS Development
+  'saas-development': {
+    id: 'saas-development',
+    serviceCategory: 'SaaS Development Services',
+    metaTitle: 'Custom SaaS Development Services | Multi-Tenant Architecture | Octavia Tech Solutions',
+    seo: {
+      h1: 'Custom SaaS Development Services',
+      metaTitle: 'Custom SaaS Development Services | Multi-Tenant Architecture | Octavia Tech Solutions',
+      metaDescription: 'Build scalable B2B and B2C Software-as-a-Service platforms. Multi-tenant database architectures, automated Stripe/Razorpay billing, and tenant data isolation.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/saas-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'SaaS Development', href: '/services/software-development/saas-development' },
+      ],
+    },
+    hero: {
+      badge: 'SaaS Architecture',
+      title: 'Custom SaaS Development',
+      titleHighlight: 'Services',
+      description: 'Build profitable, recurring-revenue SaaS platforms. We engineer secure multi-tenant architectures, automated subscription billing, tenant isolation, and self-serve onboarding portals.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore SaaS Specs',
+      tags: ['Multi-Tenant Isolation', 'Stripe Billing Integration', 'Self-Serve Onboarding', 'Elastic Cloud Scaling'],
+    },
+    overview: {
+      badge: 'WHAT IS SAAS DEVELOPMENT',
+      heading: 'Multi-Tenant SaaS Engineering Explained',
+      leadParagraph: 'SaaS Development involves building cloud-hosted Software-as-a-Service platforms where multiple client tenants securely share underlying cloud resources.',
+      secondaryParagraph: 'Octavia Tech Solutions engineers end-to-end B2B and B2C SaaS platforms featuring automated tiered subscriptions, usage metering, custom tenant subdomains, and zero-downtime updates.',
+      pillars: [
+        { title: 'Multi-Tenant Isolation', description: 'Strict database row-level security or isolated tenant schemas ensuring data privacy.', iconName: 'Lock' },
+        { title: 'Automated Subscription Billing', description: 'Integrated Stripe, Chargebee, or Razorpay handling recurring plans, usage metering, and invoices.', iconName: 'CreditCard' },
+        { title: 'Self-Serve Onboarding', description: 'Seamless registration, team invites, domain verification, and interactive product tours.', iconName: 'Users' },
+        { title: 'Usage Analytics Dashboard', description: 'Real-time metrics tracking Monthly Recurring Revenue (MRR), Churn, and CAC.', iconName: 'BarChart3' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Scalable SaaS Engineering Matters',
+      subheading: 'Improper multi-tenant design creates security vulnerabilities and high infrastructure costs.',
+      challenges: [
+        {
+          id: 'saas1',
+          category: 'Tenant Isolation',
+          issue: 'Prevent Data Leaks Between Client Organizations',
+          impact: 'Ensure 100% compliance with B2B security audits.',
+          description: 'Enforce strict schema separation and JWT tenant context on every database query.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our SaaS Engineering Service',
+      subheading: 'Core SaaS infrastructure pre-engineered for rapid market launch.',
+      categories: ['Multi-Tenancy', 'Billing & Auth', 'Analytics'],
+      features: [
+        {
+          id: 'saasf1',
+          title: 'Automated Billing & Subscription Engine',
+          category: 'Billing & Auth',
+          iconName: 'CreditCard',
+          badge: 'Revenue Ready',
+          businessBenefit: 'Automates Revenue Collection',
+          description: 'Stripe Billing integration with support for tier upgrades, downgrades, usage limits, and prorated invoices.',
+          points: ['Multi-Currency Support', 'Usage-Based Metering', 'Automated Dunning Emails'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'SaaS Development FAQ',
+      subheading: 'Answers about multi-tenancy and subscription billing.',
+      faqs: [
+        {
+          question: 'How do you ensure data isolation between different SaaS tenants?',
+          answer: 'We implement row-level security policies (RLS) in PostgreSQL or separate database schemas per tenant coupled with JWT token claims.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'SAAS AUDIT',
+      heading: 'Ready to Launch Your B2B or B2C SaaS Platform?',
+      description: 'Consult with our SaaS architects to review your technical architecture.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore SaaS Specs',
+    },
+  },
+
+  // 5. Software Modernization
+  'software-modernization': {
+    id: 'software-modernization',
+    serviceCategory: 'Software Modernization Services',
+    metaTitle: 'Legacy Software Modernization Services | Cloud Migration | Octavia Tech Solutions',
+    seo: {
+      h1: 'Legacy Software Modernization Services',
+      metaTitle: 'Legacy Software Modernization Services | Cloud Migration | Octavia Tech Solutions',
+      metaDescription: 'Transform aging legacy monoliths into modern cloud-native microservices. Eliminate technical debt, improve performance, and enhance security with zero data loss.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/software-modernization',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Software Modernization', href: '/services/software-development/software-modernization' },
+      ],
+    },
+    hero: {
+      badge: 'Legacy Modernization',
+      title: 'Legacy Software Modernization',
+      titleHighlight: 'Services',
+      description: 'Refactor and refactor monolithic applications into modern, cloud-native architectures. We eliminate technical debt, upgrade outdated tech stacks, and restore operational agility with zero business disruption.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Modernization Plan',
+      tags: ['Monolith to Microservices', 'Cloud Migration', 'Codebase Refactoring', 'Zero Business Downtime'],
+    },
+    overview: {
+      badge: 'WHAT IS MODERNIZATION',
+      heading: 'Legacy Software Modernization Explained',
+      leadParagraph: 'Software Modernization is the process of refactoring, re-architecting, and upgrading legacy codebases to leverage modern cloud infrastructure, APIs, and modern frontend frameworks.',
+      secondaryParagraph: 'Octavia Tech Solutions uses Strangler Fig patterns to incrementally replace legacy components, preventing high-risk "big bang" rewrites while maintaining business continuity.',
+      pillars: [
+        { title: 'Strangler Fig Migration', description: 'Incremental replacement of legacy modules with microservices to prevent system downtime.', iconName: 'Layers' },
+        { title: 'Cloud Infrastructure Upgrade', description: 'Migrating on-premise servers to AWS/GCP containerized Docker & Kubernetes workloads.', iconName: 'Cloud' },
+        { title: 'Frontend UX Overhaul', description: 'Replacing outdated desktop/jQuery interfaces with modern responsive React/Next.js UIs.', iconName: 'Layout' },
+        { title: 'Database Optimization', description: 'Migrating legacy SQL databases to modern scalable PostgreSQL/MongoDB clusters.', iconName: 'Database' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Software Modernization Matters',
+      subheading: 'Maintaining aging legacy codebases drains developer resources and exposes systems to security risks.',
+      challenges: [
+        {
+          id: 'sm1',
+          category: 'Technical Debt',
+          issue: 'Eliminate High Maintenance Costs & Sluggish Code',
+          impact: 'Free up engineering budget for new feature development.',
+          description: 'Refactoring brittle legacy code speeds up release cycles and reduces bug reports.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Legacy Modernization Service',
+      subheading: 'Proven methodologies for safe codebase modernization.',
+      categories: ['Refactoring', 'Cloud Migration', 'UI/UX Upgrade'],
+      features: [
+        {
+          id: 'smf1',
+          title: 'Monolith to Microservices Migration',
+          category: 'Refactoring',
+          iconName: 'Server',
+          badge: 'Low Risk',
+          businessBenefit: 'Eliminates Single Points of Failure',
+          description: 'Decomposing monolithic applications into decoupled microservices connected via REST/GraphQL APIs.',
+          points: ['Strangler Pattern Approach', 'Zero Data Loss', 'Sub-Second Response Times'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Software Modernization FAQ',
+      subheading: 'Answers about risk mitigation and business continuity.',
+      faqs: [
+        {
+          question: 'How do you ensure zero business downtime during legacy software migration?',
+          answer: 'We use incremental Strangler patterns and dual-write database sync so legacy and modern components run in parallel.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'MODERNIZATION AUDIT',
+      heading: 'Is Legacy Software Holding Your Business Back?',
+      description: 'Schedule a technical debt assessment with our senior modernization engineers.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Modernization Plan',
+    },
+  },
+
+  // 6. API Development
+  'api-development': {
+    id: 'api-development',
+    serviceCategory: 'API Development Services',
+    metaTitle: 'Custom API Development Services | REST, GraphQL & gRPC | Octavia Tech Solutions',
+    seo: {
+      h1: 'Custom API Development Services',
+      metaTitle: 'Custom API Development Services | REST, GraphQL & gRPC | Octavia Tech Solutions',
+      metaDescription: 'Engineered high-performance RESTful, GraphQL, and gRPC APIs. Secure API gateways, sub-50ms latency, OAuth2 authentication, and automated documentation.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/api-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'API Development', href: '/services/software-development/api-development' },
+      ],
+    },
+    hero: {
+      badge: 'API Engineering',
+      title: 'Custom API Development',
+      titleHighlight: 'Services',
+      description: 'Build fast, secure, and well-documented APIs. We engineer REST, GraphQL, and gRPC backend endpoints that connect applications, mobile frontends, and third-party integrations with sub-50ms latency.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore API Architecture',
+      tags: ['REST & GraphQL', 'Sub-50ms Latency', 'OAuth2 / OpenID Auth', 'OpenAPI / Swagger Specs'],
+    },
+    overview: {
+      badge: 'WHAT IS API DEVELOPMENT',
+      heading: 'API Architecture & Middleware Explained',
+      leadParagraph: 'API Development involves building secure software intermediaries that allow different applications to communicate, query data, and trigger real-time actions.',
+      secondaryParagraph: 'Octavia Tech Solutions builds enterprise API gateways with rate limiting, token authentication, payload caching, and comprehensive OpenAPI (Swagger) documentation.',
+      pillars: [
+        { title: 'Sub-50ms Response Latency', description: 'Optimized SQL queries, Redis in-memory caching, and edge routing.', iconName: 'Zap' },
+        { title: 'Robust OAuth2 & JWT Security', description: 'Token revocation, rate limiting, and encrypted payload signatures.', iconName: 'ShieldCheck' },
+        { title: 'Automated OpenAPI Docs', description: 'Auto-generated Swagger and Postman collections for developer integration.', iconName: 'Code2' },
+        { title: 'GraphQL & gRPC Specs', description: 'Flexible data querying and ultra-fast binary communication for microservices.', iconName: 'Network' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Custom API Engineering Matters',
+      subheading: 'Slow or unsecure APIs create severe frontend latency and security breaches.',
+      challenges: [
+        {
+          id: 'apic1',
+          category: 'API Latency',
+          issue: 'Prevent Slow API Times from Dragging Down Apps',
+          impact: 'Ensure instant mobile and web page rendering.',
+          description: 'Optimized database queries and Redis caching keep response times under 50ms.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our API Development Service',
+      subheading: 'High-performance API endpoints engineered for developer platforms.',
+      categories: ['REST & GraphQL', 'Security & Gateways', 'Documentation'],
+      features: [
+        {
+          id: 'apif1',
+          title: 'High-Throughput RESTful & GraphQL Endpoints',
+          category: 'REST & GraphQL',
+          iconName: 'Network',
+          badge: 'High Speed',
+          businessBenefit: 'Sub-50ms API Data Delivery',
+          description: 'Custom API development in Node.js, Python FastAPI, or Go with JSON schema validation.',
+          points: ['Sub-50ms Execution', 'Redis Query Caching', 'Pagination & Filtering'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'API Development FAQ',
+      subheading: 'Answers about API security and documentation standards.',
+      faqs: [
+        {
+          question: 'Do you provide interactive Swagger documentation for external developer integration?',
+          answer: 'Yes! We auto-generate interactive OpenAPI (Swagger) specifications and Postman collections with every API deployment.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'API AUDIT',
+      heading: 'Need High-Performance APIs Built for Your Software?',
+      description: 'Discuss your API gateway and integration specifications with our backend team.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore API Architecture',
+    },
+  },
+
+  // 7. Microservices Development
+  'microservices-development': {
+    id: 'microservices-development',
+    serviceCategory: 'Microservices Development Services',
+    metaTitle: 'Microservices Development Services | Cloud-Native Architecture | Octavia Tech Solutions',
+    seo: {
+      h1: 'Microservices Architecture Services',
+      metaTitle: 'Microservices Development Services | Cloud-Native Architecture | Octavia Tech Solutions',
+      metaDescription: 'Build cloud-native microservices using Docker, Kubernetes, gRPC, Kafka, and event-driven architecture. Scalable, independently deployable software components.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/microservices-development',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Microservices Development', href: '/services/software-development/microservices-development' },
+      ],
+    },
+    hero: {
+      badge: 'Microservices Architecture',
+      title: 'Microservices Architecture Services',
+      titleHighlight: 'Services',
+      description: 'Break down complex monoliths into modular, independently deployable microservices. We engineer event-driven, containerized architectures using Docker, Kubernetes, Kafka, and gRPC.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Microservice Specs',
+      tags: ['Docker & Kubernetes', 'Kafka Event Streaming', 'gRPC Inter-Service Auth', 'Independent Deployments'],
+    },
+    overview: {
+      badge: 'WHAT ARE MICROSERVICES',
+      heading: 'Distributed Microservices Architecture Explained',
+      leadParagraph: 'Microservices Architecture structures an application as a collection of small, autonomous services modeled around specific business domains.',
+      secondaryParagraph: 'Octavia Tech Solutions builds cloud-native microservices that can be updated, deployed, and scaled independently without risking system-wide outages.',
+      pillars: [
+        { title: 'Domain-Driven Design (DDD)', description: 'Decoupled services isolated by business capabilities for clear ownership.', iconName: 'Layers' },
+        { title: 'Event-Driven Messaging', description: 'Asynchronous event streaming powered by Apache Kafka or RabbitMQ.', iconName: 'Zap' },
+        { title: 'Container Orchestration', description: 'Docker containerization managed via Kubernetes (EKS/GKE) auto-scaling clusters.', iconName: 'Server' },
+        { title: 'Fault Isolation', description: 'Circuit breaker patterns (Resilience4j/Envoy) preventing cascade failures.', iconName: 'ShieldCheck' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Microservices Architecture Matters',
+      subheading: 'Monolithic codebases block team velocity and risk single-point failure crashes.',
+      challenges: [
+        {
+          id: 'ms1',
+          category: 'Deploy Velocity',
+          issue: 'Deploy Features Independently Without System Risk',
+          impact: 'Accelerate release frequency from months to daily deployments.',
+          description: 'Independent service pipelines eliminate long release cycles.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Microservices Development Service',
+      subheading: 'Cloud-native distributed systems engineered for maximum reliability.',
+      categories: ['Orchestration', 'Event Streaming', 'Resilience'],
+      features: [
+        {
+          id: 'msf1',
+          title: 'Kubernetes & Docker Container Orchestration',
+          category: 'Orchestration',
+          iconName: 'Server',
+          badge: 'Cloud Native',
+          businessBenefit: 'Automatic Elastic Scaling',
+          description: 'Deploying microservices inside Docker containers managed by EKS or GKE clusters.',
+          points: ['Horizontal Pod Auto-Scaling', 'Zero-Downtime Rolling Updates', 'Service Mesh (Istio) Routing'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Microservices FAQ',
+      subheading: 'Answers about container orchestration and service mesh.',
+      faqs: [
+        {
+          question: 'When should an organization transition from a monolith to microservices?',
+          answer: 'Microservices are recommended when multiple engineering teams need to deploy features independently or when specific modules experience localized traffic spikes.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'MICROSERVICES AUDIT',
+      heading: 'Ready to Scale with Microservices Architecture?',
+      description: 'Consult with our distributed systems engineers to plan your architecture.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Microservice Specs',
+    },
+  },
+
+  // 8. System Integration
+  'system-integration': {
+    id: 'system-integration',
+    serviceCategory: 'System Integration Services',
+    metaTitle: 'Enterprise System Integration Services | Octavia Tech Solutions',
+    seo: {
+      h1: 'Enterprise System Integration Services',
+      metaTitle: 'Enterprise System Integration Services | Octavia Tech Solutions',
+      metaDescription: 'Unify disparate enterprise software, CRMs, ERPs, databases, and third-party SaaS platforms with secure middleware, ETL pipelines, and real-time Webhooks.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/system-integration',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'System Integration', href: '/services/software-development/system-integration' },
+      ],
+    },
+    hero: {
+      badge: 'System Integration',
+      title: 'Enterprise System Integration',
+      titleHighlight: 'Services',
+      description: 'Connect siloed enterprise software, cloud platforms, and legacy databases into a unified digital ecosystem. We engineer custom middleware, ETL pipelines, and real-time webhook sync.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Integration Flow',
+      tags: ['ERP & CRM Sync', 'Custom Middleware', 'Real-Time Webhooks', 'Automated Data ETL'],
+    },
+    overview: {
+      badge: 'WHAT IS SYSTEM INTEGRATION',
+      heading: 'Enterprise Systems Integration Explained',
+      leadParagraph: 'System Integration connects different computing systems and software applications to act as a coordinated, unified whole with real-time data sync.',
+      secondaryParagraph: 'Octavia Tech Solutions eliminates data silos by building custom integration buses connecting Salesforce, SAP, Oracle, HubSpot, Stripe, and internal SQL/NoSQL databases.',
+      pillars: [
+        { title: 'Real-Time Data Synchronization', description: 'Instant webhook events updating customer, inventory, and financial records across platforms.', iconName: 'RefreshCw' },
+        { title: 'Custom Integration Middleware', description: 'Secure middleware mapping disparate data formats (JSON, XML, EDI) seamlessly.', iconName: 'Network' },
+        { title: 'Legacy System Connectors', description: 'Connecting legacy mainframes or SQL databases to modern cloud services.', iconName: 'Server' },
+        { title: 'Error Handling & Queueing', description: 'Dead-letter queues ensuring zero lost data payloads during network hiccups.', iconName: 'ShieldCheck' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why System Integration Matters',
+      subheading: 'Siloed applications cause manual data entry errors and delayed operational decisions.',
+      challenges: [
+        {
+          id: 'si1',
+          category: 'Data Silos',
+          issue: 'Eliminate Double Data Entry Across Departments',
+          impact: 'Save hundreds of staff hours and eliminate human data errors.',
+          description: 'Automated data pipelines keep sales, finance, and inventory records updated instantly.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our System Integration Service',
+      subheading: 'Comprehensive middleware and data integration solutions.',
+      categories: ['ERP/CRM Sync', 'Middleware & ETL', 'API Webhooks'],
+      features: [
+        {
+          id: 'sif1',
+          title: 'Salesforce, SAP & HubSpot ERP Integration',
+          category: 'ERP/CRM Sync',
+          iconName: 'Network',
+          badge: 'High Efficiency',
+          businessBenefit: 'Unified Business Intelligence',
+          description: 'Bi-directional integration pipelines connecting top ERP and CRM platforms.',
+          points: ['Real-Time Record Sync', 'Conflict Resolution Rules', 'Automated Failover Queues'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'System Integration FAQ',
+      subheading: 'Answers about legacy middleware and data mapping.',
+      faqs: [
+        {
+          question: 'Can you integrate legacy on-premise software with cloud SaaS applications?',
+          answer: 'Yes! We build secure hybrid middleware adapters and VPN tunnels to safely sync on-premise databases with cloud SaaS endpoints.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'INTEGRATION AUDIT',
+      heading: 'Need Siloed Enterprise Systems Integrated?',
+      description: 'Discuss your integration architecture with our system engineers.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Integration Flow',
+    },
+  },
+
+  // 9. Software Maintenance
+  'software-maintenance': {
+    id: 'software-maintenance',
+    serviceCategory: 'Software Maintenance Services',
+    metaTitle: 'Software Maintenance & Support Services | 24/7 SLA | Octavia Tech Solutions',
+    seo: {
+      h1: 'Software Maintenance & Support Services',
+      metaTitle: 'Software Maintenance & Support Services | 24/7 SLA | Octavia Tech Solutions',
+      metaDescription: 'Keep enterprise software secure, fast, and bug-free with 24/7 technical support, security patching, performance tuning, and guaranteed SLA response times.',
+      canonicalUrl: 'https://octaviatechnologies.com/services/software-development/software-maintenance',
+      breadcrumbs: [
+        { name: 'Home', href: '/' },
+        { name: 'Services', href: '/services' },
+        { name: 'Software Development', href: '/services/software-development' },
+        { name: 'Software Maintenance', href: '/services/software-development/software-maintenance' },
+      ],
+    },
+    hero: {
+      badge: 'Software Maintenance & SLA',
+      title: 'Software Maintenance & Support',
+      titleHighlight: 'Services',
+      description: 'Ensure 24/7 uptime, security, and peak performance for your custom software platforms. We deliver continuous monitoring, security patching, bug fixes, and feature enhancements under guaranteed response SLAs.',
+      primaryCtaText: 'Get FREE consultation',
+      secondaryCtaText: 'Explore Support Plans',
+      tags: ['24/7 SLA Monitoring', 'Security & Patching', 'Automated Daily Backups', 'Dedicated Bug Fix Sprints'],
+    },
+    overview: {
+      badge: 'WHAT IS SOFTWARE MAINTENANCE',
+      heading: 'Software Maintenance & Support Explained',
+      leadParagraph: 'Software Maintenance is the ongoing process of modifying, updating, and patching software after delivery to correct faults, improve performance, and adapt to new operating environments.',
+      secondaryParagraph: 'Octavia Tech Solutions provides proactive 24/7 maintenance contracts with dedicated Site Reliability Engineers (SRE) who monitor system health, apply security updates, and resolve critical incidents within guaranteed response SLAs.',
+      pillars: [
+        { title: '24/7 Uptime Monitoring', description: 'Automated monitoring tools detecting system anomalies before they affect users.', iconName: 'Clock' },
+        { title: 'Proactive Security Patching', description: 'Continuous dependency updates and CVE vulnerability patching.', iconName: 'ShieldCheck' },
+        { title: 'Dedicated SLA Turnaround', description: 'Sub-15min guaranteed response for critical priority-1 software incidents.', iconName: 'Zap' },
+        { title: 'Continuous Feature Tuning', description: 'Dedicated engineering sprints for minor feature requests and database optimizations.', iconName: 'RefreshCw' },
+      ],
+    },
+    challenges: {
+      badge: 'WHY IT MATTERS',
+      heading: 'Why Proactive Software Maintenance Matters',
+      subheading: 'Unmonitored software accumulates security vulnerabilities and operational bugs.',
+      challenges: [
+        {
+          id: 'sm1_m',
+          category: 'System Reliability',
+          issue: 'Prevent Costly Software Outages & Business Interruption',
+          impact: 'Protect customer trust and ensure 24/7/365 business continuity.',
+          description: 'Proactive server health checks catch memory leaks and disk usage surges early.',
+        },
+      ],
+    },
+    features: {
+      badge: 'OUR CAPABILITIES',
+      heading: 'Included in Our Software Maintenance Service',
+      subheading: 'Comprehensive support packages tailored to your engineering stack.',
+      categories: ['24/7 Monitoring', 'Security & Backups', 'Dedicated Sprints'],
+      features: [
+        {
+          id: 'smf1_m',
+          title: '24/7 Uptime Monitoring & SLA Support',
+          category: '24/7 Monitoring',
+          iconName: 'Clock',
+          badge: '24/7 SLA',
+          businessBenefit: 'Guaranteed Incident Response',
+          description: 'Sub-15min SLA response for critical outages with 24/7 SRE engineering coverage.',
+          points: ['24/7/365 SRE On-Call', 'Sub-15 Min Response SLA', 'Daily Automated Backups'],
+        },
+      ],
+    },
+    faq: {
+      badge: 'Frequently Asked Questions',
+      heading: 'Software Maintenance FAQ',
+      subheading: 'Answers about support plans and SLAs.',
+      faqs: [
+        {
+          question: 'What response times do your software support plans guarantee?',
+          answer: 'Our 24/7 SLA support plans guarantee sub-15 minute response times for Critical (P1) incidents and 2-hour response for High (P2) incidents.',
+        },
+      ],
+    },
+    cta: {
+      badge: 'SUPPORT AUDIT',
+      heading: 'Need Reliable 24/7 Support for Your Software?',
+      description: 'Get a software health assessment and review our support plan tiers.',
+      primaryCtaText: 'CONTACT US →',
+      secondaryCtaText: 'Explore Support Plans',
+    },
+  },
+};

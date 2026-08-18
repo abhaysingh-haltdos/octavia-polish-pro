@@ -10,12 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutUsRouteImport } from './routes/about-us'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as CompanyAboutRouteImport } from './routes/company.about'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesSlugRouteImport } from './routes/industries.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
@@ -27,6 +29,11 @@ import { Route as SolutionsSlugRouteImport } from './routes/solutions.$slug'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutUsRoute = AboutUsRouteImport.update({
+  id: '/about-us',
+  path: '/about-us',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -57,6 +64,11 @@ const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
 const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
   id: '/case-studies/$slug',
   path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CompanyAboutRoute = CompanyAboutRouteImport.update({
+  id: '/company/about',
+  path: '/company/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
@@ -98,10 +110,12 @@ const SolutionsSlugRoute = SolutionsSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/company/about': typeof CompanyAboutRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$': typeof ServicesSplatRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRoute
@@ -114,10 +128,12 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/company/about': typeof CompanyAboutRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$': typeof ServicesSplatRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRoute
@@ -131,10 +147,12 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-us': typeof AboutUsRoute
   '/contact': typeof ContactRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/company/about': typeof CompanyAboutRoute
   '/industries/$slug': typeof IndustriesSlugRoute
   '/services/$': typeof ServicesSplatRoute
   '/services/performance-marketing': typeof ServicesPerformanceMarketingRoute
@@ -149,10 +167,12 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about-us'
     | '/contact'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/company/about'
     | '/industries/$slug'
     | '/services/$'
     | '/services/performance-marketing'
@@ -165,10 +185,12 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about-us'
     | '/contact'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/company/about'
     | '/industries/$slug'
     | '/services/$'
     | '/services/performance-marketing'
@@ -181,10 +203,12 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about-us'
     | '/contact'
     | '/sitemap.xml'
     | '/blog/$slug'
     | '/case-studies/$slug'
+    | '/company/about'
     | '/industries/$slug'
     | '/services/$'
     | '/services/performance-marketing'
@@ -198,10 +222,12 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutUsRoute: typeof AboutUsRoute
   ContactRoute: typeof ContactRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  CompanyAboutRoute: typeof CompanyAboutRoute
   IndustriesSlugRoute: typeof IndustriesSlugRoute
   ServicesSplatRoute: typeof ServicesSplatRoute
   ServicesPerformanceMarketingRoute: typeof ServicesPerformanceMarketingRoute
@@ -220,6 +246,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about-us': {
+      id: '/about-us'
+      path: '/about-us'
+      fullPath: '/about-us'
+      preLoaderRoute: typeof AboutUsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -262,6 +295,13 @@ declare module '@tanstack/react-router' {
       path: '/case-studies/$slug'
       fullPath: '/case-studies/$slug'
       preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/company/about': {
+      id: '/company/about'
+      path: '/company/about'
+      fullPath: '/company/about'
+      preLoaderRoute: typeof CompanyAboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/industries/': {
@@ -318,10 +358,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutUsRoute: AboutUsRoute,
   ContactRoute: ContactRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  CompanyAboutRoute: CompanyAboutRoute,
   IndustriesSlugRoute: IndustriesSlugRoute,
   ServicesSplatRoute: ServicesSplatRoute,
   ServicesPerformanceMarketingRoute: ServicesPerformanceMarketingRoute,

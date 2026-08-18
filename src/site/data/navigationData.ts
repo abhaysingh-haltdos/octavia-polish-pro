@@ -2,6 +2,11 @@ import { NavItem } from '../types';
 
 export const SITE_NAV_ITEMS: NavItem[] = [
   {
+    id: 'about-us',
+    label: 'About Us',
+    href: '/about-us',
+  },
+  {
     id: 'services',
     label: 'Services',
     href: '/services',
@@ -223,41 +228,6 @@ export const SITE_NAV_ITEMS: NavItem[] = [
     id: 'blog',
     label: 'Blog',
     href: '/blog',
-  },
-  {
-    id: 'company',
-    label: 'Company',
-    href: '/company',
-    hasMega: true,
-    megaConfig: {
-      widthClass: 'mega-menu-sm',
-      gridTemplateColumns: 'repeat(2, 1fr) 220px',
-      columns: [
-        {
-          title: 'About Company',
-          items: [
-            { label: 'About Us', href: '/company/about' },
-            { label: 'Leadership', href: '/company/leadership' },
-            { label: 'Careers', href: '/company/careers' },
-          ],
-        },
-        {
-          title: 'Trust & Verification',
-          items: [
-            { label: 'Partners', href: '/company/partners' },
-            { label: 'Certifications', href: '/company/certifications' },
-            { label: 'Reviews', href: '/company/reviews' },
-            { label: 'Contact Us', href: '/company/contact' },
-          ],
-        },
-      ],
-      cta: {
-        title: 'Join Our Journey',
-        description: 'Discover our mission, leadership team, and career opportunities.',
-        primaryBtnText: 'Get in Touch',
-        primaryBtnHref: '/company/contact',
-      },
-    },
   },
 ];
 
