@@ -26,15 +26,9 @@ export const Route = createFileRoute("/services/")({
 });
 
 function ServicesIndexRoute() {
-  const { openConsultation, navigateTo } = useSite();
-
   return (
     <PageMain>
-      <SharedServiceDetailPage
-        pathOrSlug="web-development"
-        onOpenConsultation={openConsultation}
-        onLinkClick={navigateTo}
-      />
+      <SharedServiceDetailPage pathOrSlug="web-development" />
     </PageMain>
   );
 }
