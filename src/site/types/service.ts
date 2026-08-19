@@ -238,7 +238,7 @@ export interface ServiceCtaData {
   description: string;
   primaryCtaText: string;
   secondaryCtaText: string;
-  trustNotes: string[];
+  trustNotes?: string[];
 }
 
 export interface ServiceSeoData {
