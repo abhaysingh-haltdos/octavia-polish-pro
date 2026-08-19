@@ -233,12 +233,12 @@ export interface ServiceRelatedData {
 }
 
 export interface ServiceCtaData {
-  badge: string;
+  badge?: string;
   heading: string;
   description: string;
   primaryCtaText: string;
   secondaryCtaText: string;
-  trustNotes: string[];
+  trustNotes?: string[];
 }
 
 export interface ServiceSeoData {
@@ -255,19 +255,20 @@ export interface ServicePageData {
   metaTitle: string;
   seo?: ServiceSeoData;
   hero: ServiceHeroData;
-  overview: ServiceOverviewData;
-  challenges: ServiceChallengesData;
-  solution: ServiceSolutionData;
-  whyChooseUs: ServiceBenefitsData;
-  features: ServiceFeaturesData;
-  process: ServiceProcessData;
-  techStack: ServiceTechStackData;
-  industries: ServiceIndustriesData;
-  caseStudies: ServiceCaseStudiesData;
-  outcomes: ServiceOutcomesData;
-  comparison: ServiceComparisonData;
-  testimonials: ServiceTestimonialsData;
-  faq: ServiceFaqData;
-  relatedServices: ServiceRelatedData;
-  cta: ServiceCtaData;
+  /** Every section below is optional: pages render only the sections they define. */
+  overview?: ServiceOverviewData;
+  challenges?: ServiceChallengesData;
+  solution?: ServiceSolutionData;
+  whyChooseUs?: ServiceBenefitsData;
+  features?: ServiceFeaturesData;
+  process?: ServiceProcessData;
+  techStack?: ServiceTechStackData;
+  industries?: ServiceIndustriesData;
+  caseStudies?: ServiceCaseStudiesData;
+  outcomes?: ServiceOutcomesData;
+  comparison?: ServiceComparisonData;
+  testimonials?: ServiceTestimonialsData;
+  faq?: ServiceFaqData;
+  relatedServices?: ServiceRelatedData;
+  cta?: ServiceCtaData;
 }
