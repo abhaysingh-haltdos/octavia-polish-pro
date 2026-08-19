@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-import { PageMain, useSite } from "@/site/SiteChrome";
+import { PageMain } from "@/site/SiteChrome";
 import { breadcrumbSchema, buildMeta, serviceSchema } from "@/site/site-config";
 import { getServicePageData } from "@/site/data/serviceCategoriesData";
 import { SharedServiceDetailPage } from "@/site/pages/Services/SharedServiceDetailPage";
