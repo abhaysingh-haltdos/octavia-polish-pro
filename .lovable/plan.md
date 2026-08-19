@@ -1,38 +1,44 @@
-# Import changes from the repo: nothing to apply
+# Repo comparison result + fix the current build errors
 
-## What I verified
+## Part 1 — There is nothing to import from the repo
 
-- This project's working tree is at commit `9f61d33`, which is **the exact same commit as `origin/main`** — zero commits ahead, zero behind, no modified or untracked files.
-- I also checked every other branch in the repository (five `lovable-backup-main-*` branches, dated Aug 12–18). Each one is **older** than the current code.
+- This project sits on commit `9f61d33`, **identical to `origin/main`** — zero commits ahead or behind, clean working tree.
+- All five `lovable-backup-main-*` branches (Aug 12–18) are **older**. Applying any of them would delete live work: the six service datasets, `AboutPage.tsx`, and the `/about-us` + `/company/about` routes (between 6,000 and 16,000 lines removed depending on the branch).
 
-## Why applying a branch would be a regression
+The change you were thinking of is already here — commit `3a10f32`: About Us page and routes, main-nav reorder, and the software-development, AI/agentic, cloud/data/devops, mobile, product-engineering and IT-staff-augmentation datasets.
 
-Diffing each backup branch against the current code shows they would **delete** work that is live today:
+## Part 2 — What actually needs doing: the build is broken
 
-| Branch (date) | Effect if applied |
+The typecheck currently fails. Three independent causes:
+
+### 1. Unused shadcn components import a removed icon library
+Twelve files under `src/components/ui/` still `import ... from "lucide-react"`, which was removed during the Heroicons standardization. I confirmed **none of them is imported anywhere in the app**: calendar, carousel, command, context-menu, dropdown-menu, input-otp, menubar, navigation-menu, pagination, radio-group, resizable, sidebar.
+
+Fix: delete those twelve files. This removes the errors without reinstating the old icon library and without touching any rendered UI.
+
+### 2. `trustNotes` is required but absent in the new datasets
+`ServiceCtaData` in `src/site/types/service.ts` declares `trustNotes: string[]` as required, but the newer service datasets (AI/agentic, cloud/data/devops, IT staff augmentation, and others) omit it — dozens of errors.
+
+`ServiceCta.tsx` already renders it defensively (`data.trustNotes && data.trustNotes.length > 0`), so the component is fine with it missing.
+
+Fix: make the field optional (`trustNotes?: string[]`). One-line type change, no content edits, no CTA renders lost.
+
+### 3. `services.index.tsx` passes props that no longer exist
+`SharedServiceDetailPage` takes only `pathOrSlug` and pulls `openConsultation` from the `useSite()` context itself, but `src/routes/services.index.tsx` still passes `onOpenConsultation` and `onLinkClick`.
+
+Fix: drop the two stale props from the call site. Behaviour is unchanged — the component already gets the handler from context.
+
+## Verification
+
+- Run the typecheck to confirm zero errors.
+- Load `/`, `/services`, `/about-us` and a service subpage to confirm the CTA sections and navigation still render correctly.
+
+## Technical summary
+
+| File(s) | Change |
 |---|---|
-| backup-1786603705 (Aug 12) | Removes ~16,000 lines: all six service datasets, About page, shared service detail page |
-| backup-1786603872 (Aug 13) | Removes ~6,000 lines: service datasets, About page, `/about-us` + `/company/about` routes |
-| backup-1786604231 / -4276 (Aug 13) | Same removals, plus reverts `vite.config.ts` and `package.json` |
-| backup-1787031219 (Aug 18) | Removes ~7,500 lines: same datasets, About page, both About routes |
+| 12 files in `src/components/ui/` | Delete (unused, reference removed icon lib) |
+| `src/site/types/service.ts` | `trustNotes` → optional |
+| `src/routes/services.index.tsx` | Remove `onOpenConsultation` / `onLinkClick` props |
 
-In every case the current code is the superset. There is no branch containing work that this project is missing.
-
-## Recommendation
-
-**Take no action.** The repo change you're asking for is already applied here — specifically commit `3a10f32`, which added:
-
-- `/about-us` and `/company/about` routes plus the full `AboutPage.tsx`
-- Main navigation reorder (`navigationData.ts`, `serviceCategoriesData.ts`)
-- Six service datasets: software development, AI/agentic AI, cloud/data/devops, mobile app development, product engineering, IT staff augmentation
-- Supporting `vite.config.ts` and route-tree updates
-
-## If a change really is missing
-
-Then it lives outside this repository. Point me at one of these and I'll port it:
-
-- A **GitHub repo** synced outside Lovable — give me `owner/repo` and the branch
-- **Another Lovable project** in your workspace — name it and I'll read it directly
-- An **uploaded zip or folder** — I'll diff it against this project file by file
-
-Alternatively, tell me the feature in plain terms ("the pricing block on About", "the new contact form") and I'll search history and the live pages for it.
+No content, routing, SEO, or design-token changes.
