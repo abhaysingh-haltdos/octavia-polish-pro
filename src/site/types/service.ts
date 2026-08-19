@@ -233,7 +233,7 @@ export interface ServiceRelatedData {
 }
 
 export interface ServiceCtaData {
-  badge: string;
+  badge?: string;
   heading: string;
   description: string;
   primaryCtaText: string;

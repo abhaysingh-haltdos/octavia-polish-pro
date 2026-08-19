@@ -801,48 +801,48 @@ export const SERVICE_PAGES_DATA: Record<string, ServicePageData> = {
   ...PRODUCT_ENGINEERING_SUBPAGES,
   ...CLOUD_DATA_DEVOPS_SUBPAGES,
   ...IT_STAFF_AUGMENTATION_SUBPAGES,
-  'software-development': SOFTWARE_DEVELOPMENT_SUBPAGES['software-development'],
-  'mobile-app-development': MOBILE_APP_DEVELOPMENT_SUBPAGES['mobile-app-development'],
-  'ai-agentic-ai': AI_AGENTIC_AI_SUBPAGES['ai-agentic-ai'],
-  'product-engineering': PRODUCT_ENGINEERING_SUBPAGES['product-discovery'],
-  'cloud-data-devops': CLOUD_DATA_DEVOPS_SUBPAGES['cloud-data-devops'],
-  'cloud-devops': CLOUD_DATA_DEVOPS_SUBPAGES['cloud-data-devops'],
-  'it-staff-augmentation': IT_STAFF_AUGMENTATION_SUBPAGES['it-staff-augmentation'],
+  'software-development': SOFTWARE_DEVELOPMENT_SUBPAGES['software-development']!,
+  'mobile-app-development': MOBILE_APP_DEVELOPMENT_SUBPAGES['mobile-app-development']!,
+  'ai-agentic-ai': AI_AGENTIC_AI_SUBPAGES['ai-agentic-ai']!,
+  'product-engineering': PRODUCT_ENGINEERING_SUBPAGES['product-discovery']!,
+  'cloud-data-devops': CLOUD_DATA_DEVOPS_SUBPAGES['cloud-data-devops']!,
+  'cloud-devops': CLOUD_DATA_DEVOPS_SUBPAGES['cloud-data-devops']!,
+  'it-staff-augmentation': IT_STAFF_AUGMENTATION_SUBPAGES['it-staff-augmentation']!,
   'performance-marketing': PERFORMANCE_MARKETING_PAGE_DATA,
 };
 
 // Map subpage aliases directly
 Object.keys(WEB_DEVELOPMENT_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`web-development/${slug}`] = WEB_DEVELOPMENT_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`web-development/${slug}`] = WEB_DEVELOPMENT_SUBPAGES[slug]!;
 });
 
 Object.keys(SOFTWARE_DEVELOPMENT_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`software-development/${slug}`] = SOFTWARE_DEVELOPMENT_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`software-development/${slug}`] = SOFTWARE_DEVELOPMENT_SUBPAGES[slug]!;
 });
 
 Object.keys(MOBILE_APP_DEVELOPMENT_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`mobile-app-development/${slug}`] = MOBILE_APP_DEVELOPMENT_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`mobile-app-development/${slug}`] = MOBILE_APP_DEVELOPMENT_SUBPAGES[slug]!;
 });
 
 Object.keys(AI_AGENTIC_AI_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`ai-agentic-ai/${slug}`] = AI_AGENTIC_AI_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`ai-agentic-ai/${slug}`] = AI_AGENTIC_AI_SUBPAGES[slug]!;
 });
 
 Object.keys(PRODUCT_ENGINEERING_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`product-engineering/${slug}`] = PRODUCT_ENGINEERING_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`product-engineering/${slug}`] = PRODUCT_ENGINEERING_SUBPAGES[slug]!;
 });
 
 Object.keys(CLOUD_DATA_DEVOPS_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`cloud-data-devops/${slug}`] = CLOUD_DATA_DEVOPS_SUBPAGES[slug];
-  SERVICE_PAGES_DATA[`cloud-devops/${slug}`] = CLOUD_DATA_DEVOPS_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`cloud-data-devops/${slug}`] = CLOUD_DATA_DEVOPS_SUBPAGES[slug]!;
+  SERVICE_PAGES_DATA[`cloud-devops/${slug}`] = CLOUD_DATA_DEVOPS_SUBPAGES[slug]!;
 });
 
 Object.keys(IT_STAFF_AUGMENTATION_SUBPAGES).forEach((slug) => {
-  SERVICE_PAGES_DATA[`it-staff-augmentation/${slug}`] = IT_STAFF_AUGMENTATION_SUBPAGES[slug];
+  SERVICE_PAGES_DATA[`it-staff-augmentation/${slug}`] = IT_STAFF_AUGMENTATION_SUBPAGES[slug]!;
 });
 
 // Map alias paths
-SERVICE_PAGES_DATA['ai-agent-development/ai-chatbots-development'] = AI_AGENTIC_AI_SUBPAGES['ai-agent-development'] || AI_AGENTIC_AI_SUBPAGES['ai-agentic-ai'];
+SERVICE_PAGES_DATA['ai-agent-development/ai-chatbots-development'] = AI_AGENTIC_AI_SUBPAGES['ai-agent-development'] ?? AI_AGENTIC_AI_SUBPAGES['ai-agentic-ai']!;
 
 /**
  * Dynamic Service Data Generator
