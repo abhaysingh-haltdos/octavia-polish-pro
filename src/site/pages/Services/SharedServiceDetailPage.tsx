@@ -177,27 +177,30 @@ export const SharedServiceDetailPage: React.FC<SharedServiceDetailPageProps> = (
       </section>
 
       {/* 3. SERVICE EXPLAINED (Light Vision Overview) */}
-      <section className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-5 space-y-4">
-            <span className="text-xs font-bold text-[#C1A972] uppercase tracking-widest bg-[#264868]/10 px-3 py-1 rounded-full border border-[#264868]/20">
-              {data.overview.badge || "SERVICE OVERVIEW"}
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#264868] tracking-tight leading-tight">
-              {data.overview.heading}
-            </h2>
-          </div>
+      {data.overview && (
+        <section className="max-w-7xl mx-auto px-6 py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-5 space-y-4">
+              <span className="text-xs font-bold text-[#C1A972] uppercase tracking-widest bg-[#264868]/10 px-3 py-1 rounded-full border border-[#264868]/20">
+                {data.overview.badge || "SERVICE OVERVIEW"}
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-[#264868] tracking-tight leading-tight">
+                {data.overview.heading}
+              </h2>
+            </div>
 
-          <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-[#DDE3E9]/80 shadow-md space-y-4 text-[#153758] text-xs sm:text-sm leading-relaxed">
-            <p className="text-base sm:text-lg font-bold text-[#264868] leading-snug">
-              {data.overview.leadParagraph}
-            </p>
-            <p className="text-[#5C6B7A]">
-              {data.overview.secondaryParagraph}
-            </p>
+            <div className="lg:col-span-7 bg-white p-8 rounded-3xl border border-[#DDE3E9]/80 shadow-md space-y-4 text-[#153758] text-xs sm:text-sm leading-relaxed">
+              <p className="text-base sm:text-lg font-bold text-[#264868] leading-snug">
+                {data.overview.leadParagraph}
+              </p>
+              <p className="text-[#5C6B7A]">
+                {data.overview.secondaryParagraph}
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
+
 
       {/* 4. WHY IT MATTERS (Proven Scenarios Grid) */}
       <section className="max-w-7xl mx-auto px-6 py-16">
