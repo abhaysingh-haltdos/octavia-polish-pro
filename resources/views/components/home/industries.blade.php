@@ -11,7 +11,7 @@ $industries = [
 ];
 @endphp
 
-<section class="py-24 bg-[#153758] text-white border-t border-white/10" id="industries" x-data="{ searchTerm: '' }">
+<section class="py-24 bg-[#153758] text-white border-t border-white/10" id="industries" >
   <div class="max-w-7xl mx-auto px-6">
     <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
       <span class="text-xs font-bold uppercase tracking-widest text-[#D9C48F]">
@@ -25,15 +25,6 @@ $industries = [
         it's the competitive edge. We speak your language before writing a single line of
         code.
       </p>
-
-      <div class="pt-4 max-w-md mx-auto">
-        <input
-          type="text"
-          placeholder="Search your industry (e.g., Banking, Healthcare, Logistics)..."
-          x-model="searchTerm"
-          class="w-full px-5 py-3 rounded-2xl bg-white/5 border border-white/10 text-sm text-white placeholder-[#93A3B2] focus:outline-none focus:border-[#C1A972] focus:ring-2 focus:ring-[#C1A972]/30 transition-all"
-        />
-      </div>
     </div>
 
 @php
@@ -61,7 +52,6 @@ $slugMap = [
         @endphp
         <a
           href="{{ $url }}"
-          x-show="searchTerm === '' || '{{ strtolower($ind['name']) }}'.includes(searchTerm.toLowerCase()) || '{{ strtolower($ind['desc']) }}'.includes(searchTerm.toLowerCase())"
           class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#C1A972]/80 hover:bg-white/10 transition-all duration-300 group cursor-pointer flex flex-col justify-between block"
         >
           <div>
@@ -81,4 +71,5 @@ $slugMap = [
     </div>
   </div>
 </section>
+
 
