@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavia - Spaced Staircase Roadmap (Brand Colors)</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0A1926;
+            color: #FEFEFE;
+        }
+        .roadmap-card {
+            background-color: #FFFFFF;
+            border: 1px solid #DDE3E9;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px -10px rgba(15, 35, 52, 0.15);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .roadmap-card:hover {
+            transform: translateY(-8px);
+            border-color: #C1A972;
+            box-shadow: 0 25px 50px -12px rgba(21, 55, 88, 0.25), 0 0 25px rgba(193, 169, 114, 0.2);
+        }
+        .step-pill {
+            background-color: #153758;
+            color: #C1A972;
+            border: 1px solid rgba(193, 169, 114, 0.35);
+            font-weight: 800;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 10px;
+            display: inline-block;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body class="min-h-screen p-3 sm:p-6 lg:p-10 flex flex-col items-center justify-start bg-[#0A1926]">
+
+    <!-- Control Header -->
+    <div class="w-full max-w-7xl mb-8 bg-[#0F2334] border border-white/10 rounded-2xl p-4 flex items-center justify-between shadow-xl">
+        <div class="flex items-center gap-3">
+            <span class="text-xl font-black text-white tracking-tight">Octavia</span>
+            <span class="text-xs bg-[#C1A972]/20 text-[#C1A972] border border-[#C1A972]/30 px-3 py-1 rounded-full font-bold uppercase tracking-wider">
+                Roadmap &amp; Process
+            </span>
+        </div>
+        <div class="text-xs text-[#93A3B2] hidden sm:block">
+            Generous Card Spacing &bull; Octavia Brand Color Palette (#153758, #264868, #C1A972)
+        </div>
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- ROADMAP & PROCESS SECTION WITH SPACED STAIRCASE CARDS -->
+    <!-- ========================================================================= -->
+    <section class="w-full max-w-7xl bg-[#081724] rounded-3xl border border-white/10 p-6 sm:p-10 lg:p-14 shadow-2xl relative overflow-hidden" style="background-image: radial-gradient(rgba(193, 169, 114, 0.08) 1px, transparent 1px), radial-gradient(rgba(38, 72, 104, 0.2) 1px, transparent 1px); background-size: 32px 32px; background-position: 0 0, 16px 16px;">
+        
+        <!-- Ambient Brand Glows -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-[#153758]/50 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-[#C1A972]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16 space-y-3 relative z-10">
+            <span class="text-xs font-bold text-[#C1A972] uppercase tracking-widest bg-[#264868]/30 px-4 py-1.5 rounded-full border border-[#C1A972]/30 inline-block">
+                ROADMAP &amp; PROCESS
+            </span>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+                Our Step-by-Step Engineering Process
+            </h2>
+            <p class="text-[#93A3B2] text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+                A structured execution methodology guiding every stage from strategic discovery and UI/UX prototyping to high-performance launch.
+            </p>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- DESKTOP STAIRCASE 5-STEP LAYOUT (With Generous Spacing & Gold Connecting Arcs) -->
+        <!-- ========================================================================= -->
+        <div class="hidden lg:block relative z-10 pt-6 pb-28">
+            
+            <!-- Seamless Full-Grid SVG Connecting Arcs (Octavia Gold & Azure Arcs) -->
+            <svg class="absolute inset-0 w-full h-full pointer-events-none z-20 overflow-visible" viewBox="0 0 1000 500" preserveAspectRatio="none">
+                <!-- Arc 1: Card 1 -> Card 2 -->
+                <path d="M 120 70 C 140 -15, 275 -15, 290 135" fill="none" stroke="#C1A972" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+                
+                <!-- Arc 2: Card 2 -> Card 3 -->
+                <path d="M 320 135 C 340 50, 475 50, 490 200" fill="none" stroke="#C1A972" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+                
+                <!-- Arc 3: Card 3 -> Card 4 -->
+                <path d="M 520 200 C 540 115, 675 115, 690 265" fill="none" stroke="#C1A972" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+                
+                <!-- Arc 4: Card 4 -> Card 5 -->
+                <path d="M 720 265 C 740 180, 875 180, 890 330" fill="none" stroke="#C1A972" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>
+            </svg>
+
+            <!-- 5 Spaced Cascading Columns Grid (gap-6 for ample breathing room) -->
+            <div class="grid grid-cols-5 gap-6 items-start relative z-10">
+                
+                <!-- STEP 1 -->
+                <div class="relative transform translate-y-0">
+                    <div class="roadmap-card p-6 min-h-[410px] flex flex-col justify-start">
+                        <div class="mb-4">
+                            <span class="step-pill">Step 1</span>
+                        </div>
+                        <h3 class="text-xl font-black text-[#153758] tracking-tight mb-3 leading-snug">
+                            Strategy Building!
+                        </h3>
+                        <p class="text-[13px] text-[#5C6B7A] leading-relaxed">
+                            Our high-skilled product manager turns your business goals, market insights and user needs into a clear product strategy and roadmap, guiding every step from vision to successful deployment.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="relative transform translate-y-14">
+                    <div class="roadmap-card p-6 min-h-[410px] flex flex-col justify-start">
+                        <div class="mb-4">
+                            <span class="step-pill">Step 2</span>
+                        </div>
+                        <h3 class="text-xl font-black text-[#153758] tracking-tight mb-3 leading-snug">
+                            Structured Planning!
+                        </h3>
+                        <p class="text-[13px] text-[#5C6B7A] leading-relaxed">
+                            Our team of product development experts defines the project scope, timelines, resources and key milestones to create a well-organized execution plan that ensures a smooth and efficient deployment process.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="relative transform translate-y-28">
+                    <div class="roadmap-card p-6 min-h-[410px] flex flex-col justify-start">
+                        <div class="mb-4">
+                            <span class="step-pill">Step 3</span>
+                        </div>
+                        <h3 class="text-xl font-black text-[#153758] tracking-tight mb-3 leading-snug">
+                            Systematic Development!
+                        </h3>
+                        <p class="text-[13px] text-[#5C6B7A] leading-relaxed">
+                            The UI/UX team, together with the development team, transforms ideas into a scalable digital product using a structured development approach, prioritizing seamless functionality and performance.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 4 -->
+                <div class="relative transform translate-y-42">
+                    <div class="roadmap-card p-6 min-h-[410px] flex flex-col justify-start">
+                        <div class="mb-4">
+                            <span class="step-pill">Step 4</span>
+                        </div>
+                        <h3 class="text-xl font-black text-[#153758] tracking-tight mb-3 leading-snug">
+                            Quality-focused Testing!
+                        </h3>
+                        <p class="text-[13px] text-[#5C6B7A] leading-relaxed">
+                            At this stage, our QA engineers and analysts take the lead in conducting thorough quality testing and evaluation to identify risks and areas for improvement before delivering a fully developed product.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- STEP 5 -->
+                <div class="relative transform translate-y-56">
+                    <div class="roadmap-card p-6 min-h-[410px] flex flex-col justify-start">
+                        <div class="mb-4">
+                            <span class="step-pill">Step 5</span>
+                        </div>
+                        <h3 class="text-xl font-black text-[#153758] tracking-tight mb-3 leading-snug">
+                            Successful Launching!
+                        </h3>
+                        <p class="text-[13px] text-[#5C6B7A] leading-relaxed">
+                            Our product marketing manager works with the product development team to launch the product with final optimizations and market readiness, ensuring quality testing, performance engineering and bug fixing.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- MOBILE & TABLET LAYOUT (Stacked) -->
+        <!-- ========================================================================= -->
+        <div class="lg:hidden space-y-5 relative z-10">
+            <!-- Step 1 -->
+            <div class="roadmap-card p-6">
+                <div class="mb-3">
+                    <span class="step-pill">Step 1</span>
+                </div>
+                <h3 class="text-lg font-black text-[#153758] tracking-tight mb-2">Strategy Building!</h3>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                    Our high-skilled product manager turns your business goals, market insights and user needs into a clear product strategy and roadmap, guiding every step from vision to successful deployment.
+                </p>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="roadmap-card p-6">
+                <div class="mb-3">
+                    <span class="step-pill">Step 2</span>
+                </div>
+                <h3 class="text-lg font-black text-[#153758] tracking-tight mb-2">Structured Planning!</h3>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                    Our team of product development experts defines the project scope, timelines, resources and key milestones to create a well-organized execution plan that ensures a smooth and efficient deployment process.
+                </p>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="roadmap-card p-6">
+                <div class="mb-3">
+                    <span class="step-pill">Step 3</span>
+                </div>
+                <h3 class="text-lg font-black text-[#153758] tracking-tight mb-2">Systematic Development!</h3>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                    The UI/UX team, together with the development team, transforms ideas into a scalable digital product using a structured development approach, prioritizing seamless functionality and performance.
+                </p>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="roadmap-card p-6">
+                <div class="mb-3">
+                    <span class="step-pill">Step 4</span>
+                </div>
+                <h3 class="text-lg font-black text-[#153758] tracking-tight mb-2">Quality-focused Testing!</h3>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                    At this stage, our QA engineers and analysts take the lead in conducting thorough quality testing and evaluation to identify risks and areas for improvement before delivering a fully developed product.
+                </p>
+            </div>
+
+            <!-- Step 5 -->
+            <div class="roadmap-card p-6">
+                <div class="mb-3">
+                    <span class="step-pill">Step 5</span>
+                </div>
+                <h3 class="text-lg font-black text-[#153758] tracking-tight mb-2">Successful Launching!</h3>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                    Our product marketing manager works with the product development team to launch the product with final optimizations and market readiness, ensuring quality testing, performance engineering and bug fixing.
+                </p>
+            </div>
+        </div>
+
+        <!-- Bottom Discovery CTA Banner -->
+        <div class="mt-28 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-6 relative z-10">
+            <div class="space-y-1 text-center sm:text-left">
+                <h4 class="text-base font-bold text-white">Ready to start your structured engineering journey?</h4>
+                <p class="text-xs text-[#93A3B2]">Get a detailed technical roadmap &amp; sprint plan within 24–48 hours.</p>
+            </div>
+            <a href="/company/contact" class="bg-[#C1A972] hover:bg-[#b09761] text-[#0F2334] text-xs font-bold px-6 py-3 rounded-xl uppercase tracking-wider transition-all shadow-lg shrink-0">
+                Schedule Discovery Call
+            </a>
+        </div>
+
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+# Secure Uploads Directory Guard
+# Completely disables script execution in public/uploads/
+# Phase 4 Enhanced — Production Security Hardening
+
+# 1. Disable PHP execution (all PHP versions)
+<IfModule mod_php7.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php.c>
+  php_flag engine off
+</IfModule>
+<IfModule mod_php8.c>
+  php_flag engine off
+</IfModule>
+
+# 2. Block all executable script handlers
+<FilesMatch "\.(php|php3|php4|php5|php7|php8|phtml|pl|py|jsp|asp|sh|cgi|phar|exe|bat|htaccess|htpasswd)$">
+  Require all denied
+</FilesMatch>
+
+# 3. Force all files to be served as plain content, not executed
+AddType text/plain .php .php3 .php4 .php5 .php7 .php8 .phtml .phar
+
+# 4. Disable CGI execution
+Options -ExecCGI
+
+# 5. Prevent direct directory listings
+Options -Indexes
+
+# 6. Disable rewriting in this directory
+<IfModule mod_rewrite.c>
+  RewriteEngine Off
+</IfModule>
