@@ -2,10 +2,6 @@
   <div class="max-w-7xl mx-auto px-6">
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#264868]/10 text-[#264868] text-xs font-bold uppercase tracking-wider">
-        <svg class="w-4 h-4 text-[#C1A972]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-        <span>End-to-End Capabilities</span>
-      </div>
       <h2 class="text-3xl sm:text-5xl font-black text-[#153758] tracking-tight">
         Enterprise-Grade Technology Services
       </h2>
@@ -230,3 +226,4 @@ function servicesSection() {
     }
 }
 </script>
+
