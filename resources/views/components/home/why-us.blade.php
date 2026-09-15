@@ -61,8 +61,8 @@ $pillars = [
             @foreach ($pillars as $pillar)
                 <div class="p-8 rounded-3xl bg-[#F3F5F7] border border-[#DDE3E9]/80 hover:border-[#264868]/40 hover:shadow-xl hover:shadow-[#264868]/5 transition-all duration-300 group flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-[#EDF0F3] text-[#264868] flex items-center justify-center mb-6 group-hover:bg-[#264868] group-hover:text-white transition-all shadow-md shadow-[#264868]/10">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $pillar['icon'] !!}</svg>
+                        <div class="w-14 h-14 rounded-2xl bg-[#EDF0F3] text-[#264868] flex items-center justify-center mb-6 group-hover:bg-[#264868] group-hover:text-white transition-all shadow-md shadow-[#264868]/10">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $pillar['icon'] !!}</svg>
                         </div>
                         <h3 class="text-xl font-bold text-[#153758] mb-3 group-hover:text-[#264868] transition-colors">
                             {{ $pillar['title'] }}

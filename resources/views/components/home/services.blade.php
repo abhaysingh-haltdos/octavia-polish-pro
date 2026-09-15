@@ -120,10 +120,10 @@
 
 <script>
 function servicesSection() {
-    const defaultIcon = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`;
-    const cloudIcon = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>`;
-    const aiIcon = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`;
-    const healthIcon = `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`;
+    const defaultIcon = `<svg class="w-full h-full p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`;
+    const cloudIcon = `<svg class="w-full h-full p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>`;
+    const aiIcon = `<svg class="w-full h-full p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`;
+    const healthIcon = `<svg class="w-full h-full p-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>`;
 
     return {
         activeCategory: 'dev',
@@ -147,28 +147,28 @@ function servicesSection() {
                 description: "Intuitive mobile experiences built natively and cross-platform, from concept to app store, designed for performance and delight.",
                 highlights: ["iOS (Swift) & Android (Kotlin) Native", "React Native & Flutter Cross-Platform", "Biometric Auth & Offline Data Sync"],
                 metrics: [{ value: "150+", label: "Apps Published" }, { value: "4.8★", label: "Avg Store Rating" }, { value: "50M+", label: "Active End Users" }],
-                ctaText: "Build Your App", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>`
+                ctaText: "Build Your App", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>`
             },
             {
                 id: "saas-dev", title: "SaaS Development", category: "dev",
                 description: "End-to-end multi-tenant SaaS engineering with automated billing, user management, and API orchestration for high growth.",
                 highlights: ["Multi-Tenant Tenant Isolation", "Stripe / Subscription Engine Integration", "SOC 2 Compliant Infrastructure"],
                 metrics: [{ value: "40+", label: "SaaS Products Launched" }, { value: "10x", label: "Scalability Factor" }, { value: "Zero", label: "Data Leakage Incidents" }],
-                ctaText: "Launch Your SaaS", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`
+                ctaText: "Launch Your SaaS", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>`
             },
             {
                 id: "ui-ux", title: "UI/UX Design", category: "dev",
                 description: "User-centered design systems, design tokens, interactive prototypes, and accessible UI engineering that converts.",
                 highlights: ["Figma Design Systems & Tokens", "WCAG 2.1 AA Accessibility Standards", "Usability Testing & User Research"],
                 metrics: [{ value: "85%", label: "User Retention Boost" }, { value: "2.5x", label: "Conversion Lift" }, { value: "100+", label: "Design Systems" }],
-                ctaText: "Design Your Experience", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>`
+                ctaText: "Design Your Experience", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"></path></svg>`
             },
             {
                 id: "cyber-security", title: "Cyber Security", category: "cloud",
                 description: "Enterprise-grade security from threat detection to compliance, protecting your digital assets against evolving cyber threats.",
                 highlights: ["Zero-Trust Architecture & IAM", "Penetration Testing & Vulnerability Audits", "24/7 SOC Threat Monitoring"],
                 metrics: [{ value: "99.97%", label: "Threat Detection" }, { value: "200+", label: "Security Audits" }, { value: "24/7", label: "SOC Monitoring" }],
-                ctaText: "Secure Your Business", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`
+                ctaText: "Secure Your Business", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>`
             },
             {
                 id: "cloud-devops", title: "Cloud & DevOps", category: "cloud",
@@ -182,7 +182,7 @@ function servicesSection() {
                 description: "Enterprise networking solutions, SD-WAN deployment, and unified communications designed for distributed workforces.",
                 highlights: ["Cisco & Fortinet Enterprise Routing", "VPN & Zero Trust Network Access (ZTNA)", "Multi-site Network Telephony"],
                 metrics: [{ value: "100+", label: "Networks Deployed" }, { value: "<1ms", label: "Internal Latency" }, { value: "99.99%", label: "Network SLA" }],
-                ctaText: "Upgrade Your Network", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>`
+                ctaText: "Upgrade Your Network", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>`
             },
             {
                 id: "ai-ml", title: "AI & Machine Learning", category: "ai",
@@ -196,7 +196,7 @@ function servicesSection() {
                 description: "Turn raw enterprise data into real-time actionable insights with modern data lakes, ETL pipelines, and BI dashboards.",
                 highlights: ["Snowflake, BigQuery & Databricks", "Real-time Event Streaming (Kafka)", "PowerBI & Tableau Executive Dashboards"],
                 metrics: [{ value: "10PB+", label: "Data Processed" }, { value: "Real-Time", label: "Insights Pipeline" }, { value: "100%", label: "Data Governance" }],
-                ctaText: "Unlock Your Data", icon: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`
+                ctaText: "Unlock Your Data", icon: `<svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>`
             },
             {
                 id: "health-tech", title: "Healthcare Technology", category: "health",

@@ -77,8 +77,8 @@ $slugMap = [
           class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#C1A972]/80 hover:bg-white/10 transition-all duration-300 group cursor-pointer flex flex-col justify-between block"
         >
           <div>
-            <div class="w-10 h-10 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#264868] group-hover:text-white transition-all">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $ind['icon'] }}"></path></svg>
+            <div class="w-12 h-12 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#264868] group-hover:text-white transition-all">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $ind['icon'] }}"></path></svg>
             </div>
             <h3 class="text-lg font-bold text-white mb-2 group-hover:text-[#D9C48F] transition-colors">{{ $ind['name'] }}</h3>
             <p class="text-xs text-[#B4C1CD] leading-relaxed mb-4">{{ $ind['desc'] }}</p>
