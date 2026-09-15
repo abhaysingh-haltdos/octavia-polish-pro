@@ -57,10 +57,10 @@ $testimonials = [
             <!-- Carousel Arrows -->
             <div class="flex items-center gap-3 self-start md:self-end shrink-0">
                 <button @click="scrollPrev()" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"></path></svg>
                 </button>
                 <button @click="scrollNext()" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
         </div>
@@ -85,10 +85,10 @@ $testimonials = [
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex gap-1 text-[#D9C48F]">
                                     @for ($i=0; $i<5; $i++)
-                                        <svg class="w-4 h-4 fill-[#C1A972] text-[#D9C48F]" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <svg class="w-5 h-5 fill-[#C1A972] text-[#D9C48F]" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                                     @endfor
                                 </div>
-                                <svg class="w-6 h-6 text-[#C1A972]/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+                                <svg class="w-8 h-8 text-[#C1A972]/30" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
                             </div>
 
                             <p class="text-sm text-[#FEFEFE] italic leading-relaxed mb-8">
@@ -98,7 +98,7 @@ $testimonials = [
 
                         <!-- Author Profile -->
                         <div class="flex items-center gap-3 pt-4 border-t border-white/10">
-                            <div class="{{ $t['avatarBg'] }} w-11 h-11 rounded-full text-white font-bold flex items-center justify-center text-sm shadow-md border border-white/10 shrink-0">
+                            <div class="{{ $t['avatarBg'] }} w-12 h-12 rounded-full text-white font-bold flex items-center justify-center text-sm shadow-md border border-white/10 shrink-0">
                                 {{ $t['avatar'] }}
                             </div>
                             <div class="min-w-0">

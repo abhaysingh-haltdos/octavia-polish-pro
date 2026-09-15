@@ -101,8 +101,8 @@ $caseStudies = [
         >
           <div>
             <div class="flex items-center justify-between mb-6">
-              <div class="w-10 h-10 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center font-bold border border-[#C1A972]/30">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $cs['icon'] }}"></path></svg>
+              <div class="w-12 h-12 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center font-bold border border-[#C1A972]/30">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $cs['icon'] }}"></path></svg>
               </div>
               <span class="text-[11px] font-bold text-[#D9C48F] uppercase bg-[#153758] px-3 py-1 rounded-full border border-[#C1A972]/30">{{ $cs['category'] }}</span>
             </div>
@@ -125,7 +125,7 @@ $caseStudies = [
 
           <a href="/case-studies/{{ $cs['slug'] }}" class="w-full py-3 px-4 rounded-xl font-extrabold text-xs uppercase tracking-wider bg-white/10 text-white hover:bg-[#C1A972] hover:text-[#153758] transition-all flex items-center justify-center gap-2 block text-center">
             <span>Read Full Case Study</span>
-            <svg class="w-4 h-4 text-[#D9C48F] group-hover:text-[#153758] inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            <svg class="w-5 h-5 text-[#D9C48F] group-hover:text-[#153758] inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
           </a>
         </div>
       @endforeach
@@ -134,7 +134,7 @@ $caseStudies = [
     <div class="mt-12 text-center">
       <a href="/case-studies" class="px-8 py-3.5 bg-[#C1A972] hover:bg-[#C1A972] text-[#153758] font-extrabold text-xs sm:text-sm rounded-xl transition-all shadow-lg inline-flex items-center gap-2">
         <span>View All Enterprise Case Studies</span>
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
       </a>
     </div>
   </div>

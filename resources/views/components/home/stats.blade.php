@@ -32,8 +32,8 @@ $stats = [
         <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
             @foreach ($stats as $stat)
                 <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-[#C1A972]/60 hover:bg-white/[0.08] transition-all duration-300 group">
-                    <div class="w-10 h-10 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#264868] group-hover:text-white transition-all">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $stat['icon'] !!}</svg>
+                    <div class="w-12 h-12 rounded-xl bg-[#C1A972]/20 text-[#D9C48F] flex items-center justify-center mb-4 group-hover:scale-110 group-hover:bg-[#264868] group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">{!! $stat['icon'] !!}</svg>
                     </div>
                     <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1 group-hover:text-[#D9C48F] transition-colors">
                         {{ $stat['number'] }}

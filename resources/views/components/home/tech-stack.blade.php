@@ -65,7 +65,7 @@ $categories = [
                     :class="activeTab === '{{ $cat['id'] }}' ? 'bg-[#264868] text-white border-[#C1A972]/40 shadow-lg shadow-black/20' : 'bg-white/5 text-[#B4C1CD] hover:bg-white/10 hover:text-white border-white/10'"
                     class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition-all border"
                 >
-                    <svg class="w-3.5 h-3.5 transition-colors" :class="activeTab === '{{ $cat['id'] }}' ? 'text-[#D9C48F]' : 'text-[#B4C1CD]'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">{!! $cat['icon'] !!}</svg>
+                    <svg class="w-5 h-5 transition-colors" :class="activeTab === '{{ $cat['id'] }}' ? 'text-[#D9C48F]' : 'text-[#B4C1CD]'" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">{!! $cat['icon'] !!}</svg>
                     <span>{{ $cat['label'] }}</span>
                 </button>
             @endforeach
@@ -84,7 +84,7 @@ $categories = [
                     <img
                         src="{{ $item['iconUrl'] }}"
                         alt="{{ $item['name'] }}"
-                        class="w-10 h-10 mb-3 object-contain filter group-hover:scale-110 transition-transform duration-300"
+                        class="w-12 h-12 mb-3 object-contain filter group-hover:scale-110 transition-transform duration-300"
                         onerror="this.style.display='none'"
                     />
                     <h4 class="font-bold text-sm text-white group-hover:text-[#D9C48F] transition-colors">
