@@ -1,5 +1,5 @@
 @php
-$dbStudies = \App\Models\CaseStudy::where('status', 'published')->orderByDesc('is_featured')->take(6)->get();
+$dbStudies = \App\Models\CaseStudy::where('status', 'published')->orderByDesc('is_featured')->take(3)->get();
 if ($dbStudies->isNotEmpty()) {
     $caseStudies = $dbStudies->map(function ($cs) {
         $view = $cs->toViewArray();
@@ -48,34 +48,7 @@ $caseStudies = [
         'featured' => false,
         'icon' => 'M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z'
     ],
-    [
-        'title' => "Ratan Green Energy Solar EPC Platform",
-        'category' => "Energy & Sustainability",
-        'slug' => "ratan-green-energy-solar-epc-platform",
-        'summary' => "High-performance MERN platform showcasing turnkey solar EPC installations with interactive capacity calculators and instant lead capture.",
-        'metrics' => [['label' => "Solar Inquiries", 'value' => "4.1x"], ['label' => "Load Speed", 'value' => "0.5s"], ['label' => "Projects", 'value' => "50+"]],
-        'featured' => false,
-        'icon' => 'M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z'
-    ],
-    [
-        'title' => "Dr. Aafrin Shabbir Healthcare & Booking Platform",
-        'category' => "Healthcare & Wellness",
-        'slug' => "dr-aafrin-shabbir-personal-healthcare-appointment-platform",
-        'summary' => "Streamlined patient consultation portal with 2-step online appointment booking and educational medical blogs delivered in 15 days.",
-        'metrics' => [['label' => "Bookings", 'value' => "3.2x"], ['label' => "Page Load", 'value' => "0.4s"], ['label' => "Turnaround", 'value' => "15 Days"]],
-        'featured' => false,
-        'icon' => 'M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z'
-    ],
-    [
-        'title' => "Zebaya High-Conversion E-Commerce Platform",
-        'category' => "Retail & E-Commerce",
-        'slug' => "zebaya-modern-ecommerce-platform",
-        'summary' => "High-velocity WooCommerce storefront with Redis caching, express 1-click checkout, and faceted product discovery.",
-        'metrics' => [['label' => "Conversion", 'value' => "+45%"], ['label' => "Abandonment", 'value' => "-38%"], ['label' => "Load Speed", 'value' => "0.5s"]],
-        'featured' => false,
-        'icon' => 'M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z'
-    ]
-];
+    ];
 }
 @endphp
 
@@ -139,3 +112,5 @@ $caseStudies = [
     </div>
   </div>
 </section>
+
+
