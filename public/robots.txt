@@ -1,0 +1,19 @@
+# Octavia Tech Solutions — robots.txt
+# Production configuration — Phase 4 hardened
+
+User-agent: *
+Allow: /
+
+# Exclude Administrative Panel
+Disallow: /admin/
+Disallow: /admin/login
+
+# Exclude Internal API Endpoints
+Disallow: /api/
+
+# Exclude Utility / Non-indexable Pages
+Disallow: /search
+Disallow: /up
+
+# Canonical XML Sitemap
+Sitemap: https://octaviatechnologies.com/sitemap.xml

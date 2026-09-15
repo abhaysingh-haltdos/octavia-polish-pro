@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Octavia - Mega Menus Preview (Services, Industries, Solutions)</title>
+    <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F4F6F9;
+        }
+        .azure-line {
+            height: 2px;
+            background: linear-gradient(90deg, #153758 0%, #264868 60%, rgba(38,72,104,0.1) 100%);
+        }
+        .azure-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #153758;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+        .item-row:hover .azure-dot {
+            background-color: #C1A972;
+            transform: scale(1.35);
+        }
+        .cat-btn.active {
+            background-color: #F0F4F8;
+            color: #153758;
+            font-weight: 700;
+            border-left: 4px solid #153758;
+        }
+        .nav-tab.active {
+            color: #153758;
+            border-bottom: 2px solid #153758;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 flex flex-col items-center justify-start min-h-screen text-[#153758]">
+
+    <div class="w-full max-w-6xl space-y-6">
+        
+        <!-- Header Controls / Menu Selector -->
+        <div class="bg-white border border-[#DDE3E9] rounded-2xl p-4 shadow-sm flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-xl font-black tracking-tight text-[#153758]">Octavia</span>
+                <span class="text-xs bg-[#153758]/10 text-[#153758] px-2.5 py-1 rounded-full font-bold uppercase tracking-wider">
+                    Light Mega Menus
+                </span>
+            </div>
+
+            <!-- Simulated Navbar Tabs (Click to preview each menu) -->
+            <div class="flex items-center gap-6 text-sm font-semibold text-[#5C6B7A]">
+                <button onclick="showMenu('services')" id="nav-services" class="nav-tab active pb-1 cursor-pointer flex items-center gap-1.5 transition-all">
+                    <span>Services</span>
+                    <svg class="w-4 h-4 text-[#153758]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                </button>
+                <button onclick="showMenu('industries')" id="nav-industries" class="nav-tab pb-1 cursor-pointer flex items-center gap-1.5 transition-all hover:text-[#153758]">
+                    <span>Industries</span>
+                    <svg class="w-4 h-4 text-inherit" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                </button>
+                <button onclick="showMenu('solutions')" id="nav-solutions" class="nav-tab pb-1 cursor-pointer flex items-center gap-1.5 transition-all hover:text-[#153758]">
+                    <span>Solutions</span>
+                    <svg class="w-4 h-4 text-inherit" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="m19.5 8.25-7.5 7.5-7.5-7.5"/></svg>
+                </button>
+                <span class="text-[#8C9BA8] cursor-not-allowed">About Us</span>
+                <span class="text-[#8C9BA8] cursor-not-allowed">Case Studies</span>
+            </div>
+
+            <button class="bg-[#153758] hover:bg-[#264868] text-white text-xs font-bold px-4 py-2.5 rounded-xl uppercase tracking-wider transition-all shadow-md">
+                Talk to an Expert
+            </button>
+        </div>
+
+        <!-- Quick Switcher Bar -->
+        <div class="flex items-center justify-between bg-white/70 backdrop-blur-sm border border-[#DDE3E9] px-4 py-2.5 rounded-xl text-xs">
+            <span class="text-[#5C6B7A] font-medium flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Currently viewing: <strong id="current-menu-label" class="text-[#153758] font-bold">Services Mega Menu</strong>
+            </span>
+            <div class="flex items-center gap-2">
+                <button onclick="showMenu('services')" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#153758] text-white hover:bg-[#264868] transition-all" id="btn-quick-services">1. Services</button>
+                <button onclick="showMenu('industries')" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#E2E8F0] text-[#153758] hover:bg-[#CBD5E1] transition-all" id="btn-quick-industries">2. Industries</button>
+                <button onclick="showMenu('solutions')" class="px-3 py-1 rounded-lg text-xs font-semibold bg-[#E2E8F0] text-[#153758] hover:bg-[#CBD5E1] transition-all" id="btn-quick-solutions">3. Solutions</button>
+            </div>
+        </div>
+
+        <!-- ================================================================================= -->
+        <!-- 1. SERVICES MEGA MENU (Tabbed Style) -->
+        <!-- ================================================================================= -->
+        <div id="menu-services" class="menu-container bg-[#FFFFFF] border border-[#DDE3E9] rounded-3xl shadow-2xl shadow-[#153758]/12 overflow-hidden transition-all">
+            <div class="grid grid-cols-12 min-h-[500px]">
+                
+                <!-- Left Sidebar: 7 Real Categories -->
+                <div class="col-span-3 bg-[#F8FAFC] border-r border-[#DDE3E9] p-4 flex flex-col justify-start">
+                    <span class="text-[11px] font-extrabold uppercase tracking-widest text-[#5C6B7A] block px-3 mb-3">
+                        Service Categories
+                    </span>
+                    <div class="space-y-1" id="cat-tabs">
+                        <button onmouseenter="switchCategory('web-development')" id="tab-web-development" class="cat-btn active w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>Web Development</span>
+                            <svg class="w-3.5 h-3.5 text-[#153758]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('software-development')" id="tab-software-development" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>Software Development</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('mobile-app-development')" id="tab-mobile-app-development" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>Mobile App Development</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('ai-agentic-ai')" id="tab-ai-agentic-ai" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>AI & Agentic AI</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('product-engineering')" id="tab-product-engineering" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>Product Engineering</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('cloud-data-devops')" id="tab-cloud-data-devops" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>Cloud, Data & DevOps</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+
+                        <button onmouseenter="switchCategory('it-staff-augmentation')" id="tab-it-staff-augmentation" class="cat-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all flex items-center justify-between">
+                            <span>IT Staff Augmentation</span>
+                            <svg class="w-3.5 h-3.5 text-[#5C6B7A]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m8.25 4.5 7.5 7.5-7.5 7.5"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Middle Content Area: Dynamic Services List -->
+                <div class="col-span-6 p-7 bg-[#FFFFFF] flex flex-col justify-between overflow-y-auto max-h-[500px]">
+                    <div>
+                        <!-- Category Header with Dark Azure Line -->
+                        <div class="mb-5">
+                            <h3 id="cat-title" class="text-xl font-black text-[#153758] tracking-tight">Web Development</h3>
+                            <div class="azure-line mt-2"></div>
+                        </div>
+
+                        <!-- Services Grid (2 Columns) -->
+                        <div id="services-container" class="grid grid-cols-2 gap-x-6 gap-y-2.5">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Feature / CTA Panel -->
+                <div class="col-span-3 bg-[#F8FAFC] border-l border-[#DDE3E9] p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="inline-block text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#153758]/10 text-[#153758]">
+                            Featured Solution
+                        </span>
+                        
+                        <div id="cta-info" class="space-y-2">
+                            <h4 class="text-base font-bold text-[#153758] leading-snug">Custom Web Engineering</h4>
+                            <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                                Enterprise-ready web applications built with modern architectural frameworks, scalable cloud infrastructure, and robust security.
+                            </p>
+                        </div>
+
+                        <div class="pt-2">
+                            <ul class="space-y-2 text-xs text-[#153758] font-medium">
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>High-Performance APIs</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Cloud Native & Modular</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>99.99% Availability SLA</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-6 border-t border-[#DDE3E9]">
+                        <a href="/services" class="w-full py-2.5 px-3 text-center text-xs font-bold text-[#153758] bg-[#F0F4F8] hover:bg-[#E2E8F0] rounded-xl transition-all block border border-[#DDE3E9]">
+                            View All Services
+                        </a>
+                        <a href="/company/contact" class="w-full py-2.5 px-3 text-center text-xs font-bold text-white bg-[#153758] hover:bg-[#264868] rounded-xl transition-all shadow-md block">
+                            Talk to an Expert
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================================================================================= -->
+        <!-- 2. INDUSTRIES MEGA MENU (Clean 3-Column Grid + Feature Card) -->
+        <!-- ================================================================================= -->
+        <div id="menu-industries" class="menu-container hidden bg-[#FFFFFF] border border-[#DDE3E9] rounded-3xl shadow-2xl shadow-[#153758]/12 overflow-hidden transition-all">
+            <div class="grid grid-cols-12 min-h-[440px]">
+                
+                <!-- Column 1: Financial & Public Sector (6 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Financial & Public Sector
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/industries/healthcare" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Healthcare</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/fintech" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Fintech</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/banking" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Banking</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/insurance" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Insurance</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/legal" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Legal</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/government" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Government</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Commerce & Industrial (5 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Commerce & Industrial
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/industries/retail" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Retail</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/ecommerce" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Ecommerce</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/manufacturing" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Manufacturing</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/logistics" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Logistics</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/automotive" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Automotive</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services & Technology (4 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Services & Technology
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/industries/education" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Education</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/real-estate" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Real Estate</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/travel" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Travel</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/industries/hospitality" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Hospitality</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Right CTA Box -->
+                <div class="col-span-3 bg-[#F8FAFC] p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="inline-block text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#153758]/10 text-[#153758]">
+                            Domain Expertise
+                        </span>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-base font-bold text-[#153758] leading-snug">Industry Solutions</h4>
+                            <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                                Deep domain solutions engineered for specialized compliance, high transaction throughput, and enterprise scale.
+                            </p>
+                        </div>
+
+                        <div class="pt-2">
+                            <ul class="space-y-2 text-xs text-[#153758] font-medium">
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Regulatory Compliance</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Tailored Workflows</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Security-First Design</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-6 border-t border-[#DDE3E9]">
+                        <a href="/industries" class="w-full py-2.5 px-3 text-center text-xs font-bold text-white bg-[#153758] hover:bg-[#264868] rounded-xl transition-all shadow-md block">
+                            Explore All Industries
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ================================================================================= -->
+        <!-- 3. SOLUTIONS MEGA MENU (Clean 3-Column Grid + Feature Card) -->
+        <!-- ================================================================================= -->
+        <div id="menu-solutions" class="menu-container hidden bg-[#FFFFFF] border border-[#DDE3E9] rounded-3xl shadow-2xl shadow-[#153758]/12 overflow-hidden transition-all">
+            <div class="grid grid-cols-12 min-h-[440px]">
+                
+                <!-- Column 1: Real-Time & AI (3 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Real-Time & AI
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/solutions/webrtc-development" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">WebRTC Development</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/solutions/ai-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">AI Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/solutions/automation-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Automation Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: Cloud & SaaS (3 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Cloud & SaaS
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/solutions/saas-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">SaaS Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/solutions/cloud-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Cloud Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/solutions/startup-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Startup Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Enterprise Software (2 items) -->
+                <div class="col-span-3 p-6 border-r border-[#DDE3E9] flex flex-col justify-start">
+                    <div class="mb-4">
+                        <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#153758]">
+                            Enterprise Software
+                        </h4>
+                        <div class="azure-line mt-2"></div>
+                    </div>
+                    <ul class="space-y-1">
+                        <li>
+                            <a href="/solutions/enterprise-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Enterprise Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/solutions/business-solutions" class="item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all">
+                                <div class="flex items-center gap-2.5 min-w-0">
+                                    <span class="azure-dot"></span>
+                                    <span class="truncate">Business Solutions</span>
+                                </div>
+                                <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Right CTA Box -->
+                <div class="col-span-3 bg-[#F8FAFC] p-6 flex flex-col justify-between">
+                    <div class="space-y-4">
+                        <span class="inline-block text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md bg-[#153758]/10 text-[#153758]">
+                            Frameworks & Acceleration
+                        </span>
+                        
+                        <div class="space-y-2">
+                            <h4 class="text-base font-bold text-[#153758] leading-snug">Enterprise Growth</h4>
+                            <p class="text-xs text-[#5C6B7A] leading-relaxed">
+                                Pre-packaged and modular software frameworks for fast deployment, real-time connectivity, and intelligent automation.
+                            </p>
+                        </div>
+
+                        <div class="pt-2">
+                            <ul class="space-y-2 text-xs text-[#153758] font-medium">
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Fast-Track Deployment</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Modular Architecture</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <span class="azure-dot"></span>
+                                    <span>Enterprise Scalability</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 pt-6 border-t border-[#DDE3E9]">
+                        <a href="/solutions" class="w-full py-2.5 px-3 text-center text-xs font-bold text-white bg-[#153758] hover:bg-[#264868] rounded-xl transition-all shadow-md block">
+                            View All Solutions
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Scripts for Interactive Category Switching and Menu Tabs -->
+    <script>
+        const servicesData = {
+            'web-development': {
+                title: 'Web Development',
+                ctaTitle: 'Custom Web Engineering',
+                ctaDesc: 'Enterprise-ready web applications built with modern architectural frameworks, scalable cloud infrastructure, and robust security.',
+                items: [
+                    { name: 'Custom Web Development', href: '/services/web-development/custom-web-development' },
+                    { name: 'Enterprise Web Development', href: '/services/web-development/enterprise-web-development' },
+                    { name: 'Corporate Website Development', href: '/services/web-development/corporate-website-development' },
+                    { name: 'Ecommerce Development', href: '/services/web-development/ecommerce-development' },
+                    { name: 'Web Application Development', href: '/services/web-development/web-application-development' },
+                    { name: 'Progressive Web App (PWA)', href: '/services/web-development/progressive-web-app-development' },
+                    { name: 'CMS Development', href: '/services/web-development/cms-development' },
+                    { name: 'WordPress Development', href: '/services/web-development/wordpress-development' },
+                    { name: 'React Development', href: '/services/web-development/react-development' },
+                    { name: 'Next.js Development', href: '/services/web-development/nextjs-development' },
+                    { name: 'Angular Development', href: '/services/web-development/angular-development' },
+                    { name: 'Vue.js Development', href: '/services/web-development/vuejs-development' },
+                    { name: 'Laravel Development', href: '/services/web-development/laravel-development' },
+                    { name: 'Web Maintenance & Support', href: '/services/web-development/web-maintenance-support' }
+                ]
+            },
+            'software-development': {
+                title: 'Software Development',
+                ctaTitle: 'Full-Cycle Software Engineering',
+                ctaDesc: 'End-to-end custom software solutions designed for high reliability, maintainability, and seamless cloud integration.',
+                items: [
+                    { name: 'Custom Software Development', href: '/services/software-development/custom-software-development' },
+                    { name: 'Enterprise Software Development', href: '/services/software-development/enterprise-software-development' },
+                    { name: 'Software Product Development', href: '/services/software-development/software-product-development' },
+                    { name: 'SaaS Development', href: '/services/software-development/saas-development' },
+                    { name: 'Software Modernization', href: '/services/software-development/software-modernization' },
+                    { name: 'API Development', href: '/services/software-development/api-development' },
+                    { name: 'Microservices Development', href: '/services/software-development/microservices-development' },
+                    { name: 'System Integration', href: '/services/software-development/system-integration' },
+                    { name: 'Software Maintenance', href: '/services/software-development/software-maintenance' }
+                ]
+            },
+            'mobile-app-development': {
+                title: 'Mobile App Development',
+                ctaTitle: 'Native & Cross-Platform Apps',
+                ctaDesc: 'High-performance mobile applications delivering fluid user experiences across iOS, Android, Flutter, and React Native.',
+                items: [
+                    { name: 'Android App Development', href: '/services/mobile-app-development/android-app-development' },
+                    { name: 'iOS App Development', href: '/services/mobile-app-development/ios-app-development' },
+                    { name: 'Flutter App Development', href: '/services/mobile-app-development/flutter-app-development' },
+                    { name: 'React Native Development', href: '/services/mobile-app-development/react-native-development' },
+                    { name: 'Cross-Platform Development', href: '/services/mobile-app-development/cross-platform-development' },
+                    { name: 'Mobile App Maintenance', href: '/services/mobile-app-development/mobile-app-maintenance' }
+                ]
+            },
+            'ai-agentic-ai': {
+                title: 'AI & Agentic AI',
+                ctaTitle: 'Autonomous Intelligence Systems',
+                ctaDesc: 'Next-generation AI agents, LLM architectures, RAG pipelines, and enterprise generative AI solutions.',
+                items: [
+                    { name: 'AI Consulting Services', href: '/services/ai-agentic-ai/ai-consulting-services' },
+                    { name: 'AI Development Services', href: '/services/ai-agentic-ai/ai-development-services' },
+                    { name: 'Generative AI Development', href: '/services/ai-agentic-ai/generative-ai-development' },
+                    { name: 'Enterprise AI Development', href: '/services/ai-agentic-ai/enterprise-ai-development' },
+                    { name: 'AI Agent Development', href: '/services/ai-agentic-ai/ai-agent-development' },
+                    { name: 'Agentic AI Development', href: '/services/ai-agentic-ai/agentic-ai-development' },
+                    { name: 'LLM Development', href: '/services/ai-agentic-ai/llm-development' },
+                    { name: 'RAG Development Services', href: '/services/ai-agentic-ai/rag-development-services' },
+                    { name: 'AI Chatbot Development', href: '/services/ai-agent-development/ai-chatbots-development' },
+                    { name: 'Machine Learning Solutions', href: '/services/ai-agentic-ai/machine-learning-solutions' },
+                    { name: 'AI Automation Solutions', href: '/services/ai-agentic-ai/ai-automation-solutions' }
+                ]
+            },
+            'product-engineering': {
+                title: 'Product Engineering',
+                ctaTitle: 'Concept to Market Acceleration',
+                ctaDesc: 'Rapid prototyping, MVP creation, and continuous product evolution engineered for startup and enterprise growth.',
+                items: [
+                    { name: 'Product Discovery', href: '/services/product-engineering/product-discovery' },
+                    { name: 'MVP Development', href: '/services/product-engineering/mvp-development' },
+                    { name: 'Product Design', href: '/services/product-engineering/product-design' },
+                    { name: 'SaaS Development', href: '/services/product-engineering/saas-development' },
+                    { name: 'Startup Product Development', href: '/services/product-engineering/startup-product-development' },
+                    { name: 'Product Modernization', href: '/services/product-engineering/product-modernization' }
+                ]
+            },
+            'cloud-data-devops': {
+                title: 'Cloud, Data & DevOps',
+                ctaTitle: 'Cloud Migration & Automation',
+                ctaDesc: 'AWS, Azure, and GCP architecture, automated CI/CD pipelines, and high-performance data engineering.',
+                items: [
+                    { name: 'Cloud Consulting', href: '/services/cloud-data-devops/cloud-consulting' },
+                    { name: 'AWS Consulting', href: '/services/cloud-data-devops/aws-consulting' },
+                    { name: 'Azure Consulting', href: '/services/cloud-data-devops/azure-consulting' },
+                    { name: 'Google Cloud Consulting', href: '/services/cloud-data-devops/google-cloud-consulting' },
+                    { name: 'Cloud Migration', href: '/services/cloud-data-devops/cloud-migration' },
+                    { name: 'DevOps Consulting', href: '/services/cloud-data-devops/devops-consulting' },
+                    { name: 'Data Engineering', href: '/services/cloud-data-devops/data-engineering' },
+                    { name: 'Data Analytics', href: '/services/cloud-data-devops/data-analytics' }
+                ]
+            },
+            'it-staff-augmentation': {
+                title: 'IT Staff Augmentation',
+                ctaTitle: 'Elite Dedicated Engineers',
+                ctaDesc: 'Scale your technical team seamlessly with senior developers, architects, and dedicated engineering pods.',
+                items: [
+                    { name: 'Hire Dedicated Developers', href: '/services/it-staff-augmentation/hire-dedicated-developers' },
+                    { name: 'Hire Software Developers', href: '/services/it-staff-augmentation/hire-software-developers' },
+                    { name: 'Hire Web Developers', href: '/services/it-staff-augmentation/hire-web-developers' },
+                    { name: 'Hire Mobile App Developers', href: '/services/it-staff-augmentation/hire-mobile-app-developers' },
+                    { name: 'Hire Frontend Developers', href: '/services/it-staff-augmentation/hire-frontend-developers' },
+                    { name: 'Hire Backend Developers', href: '/services/it-staff-augmentation/hire-backend-developers' },
+                    { name: 'Hire Full Stack Developers', href: '/services/it-staff-augmentation/hire-full-stack-developers' },
+                    { name: 'Hire React Developers', href: '/services/it-staff-augmentation/hire-react-developers' },
+                    { name: 'Hire Next.js Developers', href: '/services/it-staff-augmentation/hire-nextjs-developers' },
+                    { name: 'Hire Node.js Developers', href: '/services/it-staff-augmentation/hire-nodejs-developers' },
+                    { name: 'Hire AI Developers', href: '/services/it-staff-augmentation/hire-ai-developers' },
+                    { name: 'Hire DevOps Engineers', href: '/services/it-staff-augmentation/hire-devops-engineers' },
+                    { name: 'Dedicated Development Team', href: '/services/it-staff-augmentation/dedicated-development-team' },
+                    { name: 'Offshore Development Team', href: '/services/it-staff-augmentation/offshore-development-team' },
+                    { name: 'Team Extension Services', href: '/services/it-staff-augmentation/team-extension-services' }
+                ]
+            }
+        };
+
+        function switchCategory(key) {
+            const data = servicesData[key];
+            if (!data) return;
+
+            // Highlight Tab
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('active');
+                const svg = btn.querySelector('svg');
+                if (svg) svg.classList.remove('text-[#153758]');
+                if (svg) svg.classList.add('text-[#5C6B7A]');
+            });
+            const activeBtn = document.getElementById('tab-' + key);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                const svg = activeBtn.querySelector('svg');
+                if (svg) svg.classList.add('text-[#153758]');
+            }
+
+            // Update Title & Line
+            document.getElementById('cat-title').textContent = data.title;
+
+            // Update CTA panel
+            document.getElementById('cta-info').innerHTML = `
+                <h4 class="text-base font-bold text-[#153758] leading-snug">${data.ctaTitle}</h4>
+                <p class="text-xs text-[#5C6B7A] leading-relaxed">${data.ctaDesc}</p>
+            `;
+
+            // Populate Grid Items
+            const container = document.getElementById('services-container');
+            container.innerHTML = '';
+            data.items.forEach(item => {
+                const link = document.createElement('a');
+                link.href = item.href;
+                link.className = 'item-row group flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758] transition-all duration-150';
+                link.innerHTML = `
+                    <div class="flex items-center gap-2.5 min-w-0">
+                        <span class="azure-dot"></span>
+                        <span class="truncate">${item.name}</span>
+                    </div>
+                    <svg class="w-3.5 h-3.5 text-[#153758] opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+                `;
+                container.appendChild(link);
+            });
+        }
+
+        function showMenu(menuKey) {
+            // Hide all menus
+            document.querySelectorAll('.menu-container').forEach(el => el.classList.add('hidden'));
+            
+            // Show selected menu
+            const activeMenu = document.getElementById('menu-' + menuKey);
+            if (activeMenu) activeMenu.classList.remove('hidden');
+
+            // Update Top Nav Tabs
+            document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + menuKey);
+            if (activeNav) activeNav.classList.add('active');
+
+            // Update Quick Switcher buttons
+            ['services', 'industries', 'solutions'].forEach(k => {
+                const btn = document.getElementById('btn-quick-' + k);
+                if (k === menuKey) {
+                    btn.className = 'px-3 py-1 rounded-lg text-xs font-semibold bg-[#153758] text-white hover:bg-[#264868] transition-all';
+                } else {
+                    btn.className = 'px-3 py-1 rounded-lg text-xs font-semibold bg-[#E2E8F0] text-[#153758] hover:bg-[#CBD5E1] transition-all';
+                }
+            });
+
+            // Update label
+            const labels = {
+                'services': 'Services Mega Menu (Tabbed Sidebar + Dynamic Offerings)',
+                'industries': 'Industries Mega Menu (3 Multi-Column Grid + Domain Card)',
+                'solutions': 'Solutions Mega Menu (3 Multi-Column Grid + Acceleration Card)'
+            };
+            document.getElementById('current-menu-label').textContent = labels[menuKey] || menuKey;
+        }
+
+        // Initialize Services
+        switchCategory('web-development');
+    </script>
+</body>
+</html>
