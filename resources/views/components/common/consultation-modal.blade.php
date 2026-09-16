@@ -50,6 +50,7 @@
                         <input
                             type="text"
                             required
+                            maxlength="100"
                             x-model="name"
                             placeholder="Alex Morgan"
                             class="w-full px-4 py-2.5 rounded-xl border border-[#DDE3E9] text-sm focus:outline-none focus:border-[#264868] focus:ring-1 focus:ring-[#264868]"
@@ -62,6 +63,7 @@
                             <input
                                 type="email"
                                 required
+                                maxlength="100"
                                 x-model="email"
                                 placeholder="alex@company.com"
                                 class="w-full px-4 py-2.5 rounded-xl border border-[#DDE3E9] text-sm focus:outline-none focus:border-[#264868] focus:ring-1 focus:ring-[#264868]"
@@ -71,6 +73,7 @@
                             <label class="block text-xs font-bold uppercase text-[#5C6B7A] mb-1">Phone Number</label>
                             <input
                                 type="tel"
+                                maxlength="30"
                                 x-model="phone"
                                 placeholder="+1 (555) 000-0000"
                                 class="w-full px-4 py-2.5 rounded-xl border border-[#DDE3E9] text-sm focus:outline-none focus:border-[#264868] focus:ring-1 focus:ring-[#264868]"
@@ -82,6 +85,7 @@
                         <label class="block text-xs font-bold uppercase text-[#5C6B7A] mb-1">Area of Interest / Service</label>
                         <input
                             type="text"
+                            maxlength="100"
                             x-model="service"
                             class="w-full px-4 py-2.5 rounded-xl border border-[#DDE3E9] text-sm focus:outline-none focus:border-[#264868] focus:ring-1 focus:ring-[#264868]"
                         />
@@ -91,6 +95,7 @@
                         <label class="block text-xs font-bold uppercase text-[#5C6B7A] mb-1">Project Details</label>
                         <textarea
                             rows="3"
+                            maxlength="5000"
                             x-model="message"
                             placeholder="Briefly describe your objectives, architecture challenges, or timelines..."
                             class="w-full px-4 py-2.5 rounded-xl border border-[#DDE3E9] text-sm focus:outline-none focus:border-[#264868] focus:ring-1 focus:ring-[#264868]"
@@ -114,9 +119,9 @@
                     <button
                         type="submit"
                         :disabled="isSubmitting"
-                        class="w-full py-3.5 px-6 rounded-xl bg-[#264868] hover:bg-[#153758] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-[#264868]/20 flex items-center justify-center gap-2"
+                        class="w-full py-3.5 px-6 rounded-xl bg-[#264868] hover:bg-[#153758] text-white font-bold text-xs uppercase tracking-wider transition-all shadow-xl shadow-[#264868]/20 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
-                        <span x-text="isSubmitting ? 'Sending Request...' : 'Schedule Architecture Session'"></span>
+                        <span x-text="isSubmitting ? 'Submitting to Architecture Team...' : 'Schedule Architecture Session'"></span>
                         <svg class="w-4 h-4 text-[#C1A972]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </button>
                 </form>
@@ -140,8 +145,9 @@ function consultationModal() {
         num2: Math.floor(Math.random() * 8) + 1,
         captchaAnswer: '',
 
-        submitForm() {
-            if (parseInt(this.captchaAnswer) !== (this.num1 + this.num2)) {
+        async submitForm() {
+            const expectedSum = this.num1 + this.num2;
+            if (parseInt(this.captchaAnswer, 10) !== expectedSum) {
                 this.errorMessage = 'Incorrect security check answer. Please try again.';
                 return;
             }
@@ -149,18 +155,53 @@ function consultationModal() {
             this.errorMessage = '';
             this.isSubmitting = true;
 
-            setTimeout(() => {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+            try {
+                const res = await fetch('/api/submit-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        fullName: this.name,
+                        email: this.email,
+                        phone: this.phone,
+                        serviceCategory: this.service,
+                        message: this.message,
+                        sourceForm: 'Consultation Modal',
+                        sourceUrl: window.location.href,
+                        userCaptchaAnswer: parseInt(this.captchaAnswer, 10),
+                        expectedCaptchaAnswer: expectedSum
+                    })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    this.isSubmitting = false;
+                    this.submitted = true;
+                    setTimeout(() => {
+                        this.submitted = false;
+                        this.name = '';
+                        this.email = '';
+                        this.phone = '';
+                        this.message = '';
+                        this.captchaAnswer = '';
+                        this.num1 = Math.floor(Math.random() * 8) + 2;
+                        this.num2 = Math.floor(Math.random() * 8) + 1;
+                    }, 4000);
+                } else {
+                    this.isSubmitting = false;
+                    this.errorMessage = data.message || (data.errors ? Object.values(data.errors).flat().join(' ') : 'Submission failed. Please check your input.');
+                }
+            } catch (err) {
                 this.isSubmitting = false;
-                this.submitted = true;
-                setTimeout(() => {
-                    this.submitted = false;
-                    this.name = '';
-                    this.email = '';
-                    this.phone = '';
-                    this.message = '';
-                    this.captchaAnswer = '';
-                }, 4000);
-            }, 800);
+                this.errorMessage = 'A network error occurred. Please try again or contact us directly.';
+            }
         }
     }
 }

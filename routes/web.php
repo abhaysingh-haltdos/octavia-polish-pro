@@ -129,6 +129,7 @@ Route::prefix('admin')->name('admin.')->middleware(['admin.auth'])->group(functi
         // Client Inquiries & Leads
         Route::get('leads', [AdminLeadController::class, 'index'])->name('leads.index');
         Route::get('leads/export', [AdminLeadController::class, 'export'])->name('leads.export');
+        Route::get('leads/export-excel', [AdminLeadController::class, 'exportExcel'])->name('leads.export-excel');
         Route::get('leads/{lead}', [AdminLeadController::class, 'show'])->name('leads.show');
         Route::put('leads/{lead}', [AdminLeadController::class, 'update'])->name('leads.update');
 

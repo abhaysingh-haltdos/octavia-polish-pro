@@ -3,18 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @php
     $seo = $seoMeta ?? null;
     $defaultTitle = \App\Models\Setting::get('default_meta_title', 'Octavia Tech Solutions — Enterprise Software & AI Engineering');
     $defaultDesc = \App\Models\Setting::get('default_meta_description', 'Leading enterprise IT staff augmentation, custom software, and cloud engineering.');
     $siteName = \App\Models\Setting::get('site_name', 'Octavia Tech Solutions');
 
-    $pageTitle = $seo?->meta_title ?? (isset($title) ? "{$title} | {$siteName}" : $defaultTitle);
+    $isError = isset($exception) || (isset($isErrorPage) && $isErrorPage);
+    $pageTitle = $seo?->meta_title ?? (isset($title) ? "{$title} | {$siteName}" : ($isError ? "Page Not Found | {$siteName}" : $defaultTitle));
     $pageDesc = $seo?->meta_description ?? $defaultDesc;
     $canonicalUrl = $seo?->canonical_url ?? url()->current();
-    $robots = ($seo && (!$seo->robots_index || !$seo->robots_follow))
-        ? (($seo->robots_index ? 'index' : 'noindex') . ',' . ($seo->robots_follow ? 'follow' : 'nofollow'))
-        : 'index,follow';
+    
+    if ($isError) {
+        $robots = 'noindex,nofollow';
+    } else {
+        $robots = ($seo && (!$seo->robots_index || !$seo->robots_follow))
+            ? (($seo->robots_index ? 'index' : 'noindex') . ',' . ($seo->robots_follow ? 'follow' : 'nofollow'))
+            : 'index,follow';
+    }
+
     $ogTitle = $seo?->og_title ?? $pageTitle;
     $ogDesc = $seo?->og_description ?? $pageDesc;
     $ogImage = $seo?->og_image ?? asset('assets/octavia-logo.png');
@@ -23,10 +31,10 @@
     $twitterDesc = $seo?->twitter_description ?? $ogDesc;
     $twitterImage = $seo?->twitter_image ?? $ogImage;
 @endphp
-    <title>{{ $pageTitle }}</title>
+    <title>@yield('title', $pageTitle)</title>
     <meta name="description" content="{{ $pageDesc }}">
     <link rel="canonical" href="{{ $canonicalUrl }}">
-    <meta name="robots" content="{{ $robots }}">
+    <meta name="robots" content="@yield('robots', $robots)">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="{{ $ogType }}">

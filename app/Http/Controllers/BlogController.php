@@ -88,6 +88,7 @@ class BlogController extends Controller
             'prevArticle' => $prevArticle?->toViewArray(),
             'nextArticle' => $nextArticle?->toViewArray(),
             'seoMeta'     => $post->seoMeta,
+            'title'       => $post->title,
             'jsonLd'      => $jsonLd,
             'breadcrumbs' => $breadcrumbs,
         ]);

@@ -14,6 +14,42 @@
     </url>
     @endforeach
 
+    {{-- Commercial Services & Sub-services --}}
+    @if (!empty($servicesUrls))
+    @foreach ($servicesUrls as $serviceEntry)
+    <url>
+        <loc>{{ $serviceEntry['url'] }}</loc>
+        <lastmod>{{ $serviceEntry['lastmod'] }}</lastmod>
+        <changefreq>{{ $serviceEntry['changefreq'] }}</changefreq>
+        <priority>{{ $serviceEntry['priority'] }}</priority>
+    </url>
+    @endforeach
+    @endif
+
+    {{-- Industry Vertical Landing Pages --}}
+    @if (!empty($industriesUrls))
+    @foreach ($industriesUrls as $indEntry)
+    <url>
+        <loc>{{ $indEntry['url'] }}</loc>
+        <lastmod>{{ $indEntry['lastmod'] }}</lastmod>
+        <changefreq>{{ $indEntry['changefreq'] }}</changefreq>
+        <priority>{{ $indEntry['priority'] }}</priority>
+    </url>
+    @endforeach
+    @endif
+
+    {{-- Solution Architecture Pages --}}
+    @if (!empty($solutionsUrls))
+    @foreach ($solutionsUrls as $solEntry)
+    <url>
+        <loc>{{ $solEntry['url'] }}</loc>
+        <lastmod>{{ $solEntry['lastmod'] }}</lastmod>
+        <changefreq>{{ $solEntry['changefreq'] }}</changefreq>
+        <priority>{{ $solEntry['priority'] }}</priority>
+    </url>
+    @endforeach
+    @endif
+
     {{-- Published Blog Posts --}}
     @foreach ($posts as $post)
     <url>

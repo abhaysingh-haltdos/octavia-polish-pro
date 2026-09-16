@@ -61,9 +61,61 @@ class SitemapController extends Controller
             })
             ->get(['slug', 'updated_at']);
 
+        // Commercial services from services.json
+        $servicesPath = storage_path('app/services.json');
+        $servicesUrls = [];
+        if (\Illuminate\Support\Facades\File::exists($servicesPath)) {
+            $servicesData = json_decode(\Illuminate\Support\Facades\File::get($servicesPath), true) ?: [];
+            $now = Carbon::now()->toAtomString();
+            foreach ($servicesData as $key => $sData) {
+                if ($key === 'generic') continue;
+                $servicesUrls[] = [
+                    'url' => $baseUrl . '/services/' . ltrim($key, '/'),
+                    'lastmod' => $now,
+                    'changefreq' => 'weekly',
+                    'priority' => '0.8',
+                ];
+            }
+        }
+
+        // Industry pages from industries.json
+        $industriesPath = storage_path('app/industries.json');
+        $industriesUrls = [];
+        if (\Illuminate\Support\Facades\File::exists($industriesPath)) {
+            $industriesData = json_decode(\Illuminate\Support\Facades\File::get($industriesPath), true) ?: [];
+            $now = Carbon::now()->toAtomString();
+            foreach (array_keys($industriesData) as $indSlug) {
+                $industriesUrls[] = [
+                    'url' => $baseUrl . '/industries/' . ltrim($indSlug, '/'),
+                    'lastmod' => $now,
+                    'changefreq' => 'monthly',
+                    'priority' => '0.7',
+                ];
+            }
+        }
+
+        // Solution pages from solutions.json
+        $solutionsPath = storage_path('app/solutions.json');
+        $solutionsUrls = [];
+        if (\Illuminate\Support\Facades\File::exists($solutionsPath)) {
+            $solutionsData = json_decode(\Illuminate\Support\Facades\File::get($solutionsPath), true) ?: [];
+            $now = Carbon::now()->toAtomString();
+            foreach (array_keys($solutionsData) as $solSlug) {
+                $solutionsUrls[] = [
+                    'url' => $baseUrl . '/solutions/' . ltrim($solSlug, '/'),
+                    'lastmod' => $now,
+                    'changefreq' => 'monthly',
+                    'priority' => '0.7',
+                ];
+            }
+        }
+
         $content = view('sitemap.index', compact(
             'baseUrl',
             'staticUrls',
+            'servicesUrls',
+            'industriesUrls',
+            'solutionsUrls',
             'posts',
             'caseStudies',
             'cmsPages'

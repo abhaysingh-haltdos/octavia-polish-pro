@@ -51,10 +51,35 @@ class CaseStudyController extends Controller
             ->values()
             ->all();
 
+        $appUrl = rtrim(config('app.url'), '/');
+
+        $jsonLd = [
+            '@context' => 'https://schema.org',
+            '@type' => 'CreativeWork',
+            'headline' => $caseStudy->title,
+            'description' => $caseStudy->subtitle ?? '',
+            'url' => $appUrl . '/case-studies/' . $caseStudy->slug,
+            'datePublished' => $caseStudy->published_at?->toIso8601String() ?? $caseStudy->created_at->toIso8601String(),
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => 'Octavia Tech Solutions',
+                'url' => $appUrl,
+            ],
+        ];
+
+        $breadcrumbs = [
+            ['name' => 'Home', 'url' => $appUrl . '/'],
+            ['name' => 'Case Studies', 'url' => $appUrl . '/case-studies'],
+            ['name' => $caseStudy->title, 'url' => $appUrl . '/case-studies/' . $caseStudy->slug],
+        ];
+
         return view('pages.case-studies.show', [
             'study' => $caseStudy->toViewArray(),
             'related' => $related,
             'seoMeta' => $caseStudy->seoMeta,
+            'title' => $caseStudy->title,
+            'breadcrumbs' => $breadcrumbs,
+            'jsonLd' => $jsonLd,
         ]);
     }
 }

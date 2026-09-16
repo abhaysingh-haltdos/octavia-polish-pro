@@ -26,9 +26,10 @@
 >
     <div class="header-inner">
         <!-- Brand Logo -->
-        <a href="/" class="flex items-center gap-2 logo" title="Octavia Tech Solutions">
-            <span class="font-extrabold text-2xl tracking-tight logo-white text-white">Octavia</span>
-            <span class="font-extrabold text-2xl tracking-tight logo-main text-[#153758]">Octavia</span>
+        <a href="/" class="flex items-center gap-2 logo" title="Octavia Tech Solutions" aria-label="Octavia Tech Solutions — home">
+            <span :class="scrolled ? 'flex items-center' : 'flex items-center rounded-xl bg-[#FEFEFE] px-2.5 py-1.5 shadow-md shadow-black/20 transition-all'">
+                <img src="/assets/octavia-logo.png" width="502" height="173" alt="Octavia Tech Solutions" class="h-8 sm:h-9 lg:h-10 w-auto shrink-0 object-contain logo-img" loading="eager" />
+            </span>
         </a>
 
         <!-- Desktop Navigation -->
@@ -47,15 +48,20 @@
                             :class="activeMega === '{{ $item['id'] }}' ? 'open' : ''"
                             @mouseenter="activeMega = '{{ $item['id'] }}'"
                             @mouseleave="activeMega = null"
+                            @focusin="activeMega = '{{ $item['id'] }}'"
+                            @focusout="if (!$el.contains($event.relatedTarget)) activeMega = null"
+                            @keydown.escape.window="activeMega = null"
                         >
                             <a
                                 href="{{ $item['href'] }}"
                                 class="nav-link"
                                 :class="activeMega === '{{ $item['id'] }}' ? 'active' : ''"
                                 title="{{ $item['label'] }}"
+                                aria-haspopup="true"
+                                :aria-expanded="activeMega === '{{ $item['id'] }}' ? 'true' : 'false'"
                             >
                                 <span>{{ $item['label'] }}</span>
-                                <svg class="w-3.5 h-3.5 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                <svg class="w-3.5 h-3.5 opacity-80" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                             </a>
 
                             <x-layout.mega-menu :item="$item" />

@@ -39,11 +39,18 @@
 <div
     x-show="searchOpen"
     x-cloak
+    role="dialog"
+    aria-modal="true"
+    aria-label="Global Search Navigation"
     class="fixed inset-0 z-[1150] flex items-start justify-center pt-16 sm:pt-24 p-4 bg-black/70 backdrop-blur-md"
     x-data="searchModal({{ json_encode($searchableLinks) }})"
+    x-effect="if (searchOpen) $nextTick(() => { if ($refs.searchInput) $refs.searchInput.focus(); selectedIndex = 0; })"
     @keydown.window.prevent.cmd.k="searchOpen = true"
     @keydown.window.prevent.ctrl.k="searchOpen = true"
     @keydown.escape.window="searchOpen = false"
+    @keydown.arrow-down.prevent="if (filteredResults.length) selectedIndex = (selectedIndex + 1) % filteredResults.length"
+    @keydown.arrow-up.prevent="if (filteredResults.length) selectedIndex = (selectedIndex - 1 + filteredResults.length) % filteredResults.length"
+    @keydown.enter.prevent="navigateSelected()"
 >
     <div
         @click.away="searchOpen = false"
@@ -61,7 +68,7 @@
             />
             <template x-if="query">
                 <button
-                    @click="query = ''"
+                    @click="query = ''; selectedIndex = 0"
                     class="text-xs text-[#93A3B2] hover:text-[#5C6B7A] px-2 py-1 rounded bg-[#DDE3E9]/60"
                 >
                     Clear
@@ -89,7 +96,7 @@
             <template x-if="filteredResults.length > 0">
                 <div class="space-y-1">
                     <div class="px-3 py-1.5 text-[11px] font-bold text-[#93A3B2] uppercase tracking-wider flex items-center justify-between">
-                        <span x-text="query ? `Found ${filteredResults.length} links` : 'Popular Navigation Links'"></span>
+                        <span x-text="query ? `Found ${filteredResults.length} links (↑↓ to navigate, Enter to select)` : 'Popular Navigation Links (↑↓ to navigate)'"></span>
                         <span class="flex items-center gap-1 text-[#264868]">
                             <svg class="w-3 h-3 text-[#C1A972]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
                             <span>Octavia Index</span>
@@ -100,11 +107,13 @@
                         <a
                             :href="item.href"
                             @click="searchOpen = false"
-                            class="flex items-center justify-between p-3 rounded-xl hover:bg-[#F3F5F7] group transition-colors border border-transparent hover:border-[#DDE3E9]/60"
+                            @mouseenter="selectedIndex = idx"
+                            :class="selectedIndex === idx ? 'bg-[#F3F5F7] border-[#DDE3E9]/80 text-[#264868]' : 'border-transparent text-[#153758]'"
+                            class="flex items-center justify-between p-3 rounded-xl group transition-colors border"
                         >
                             <div class="flex-1 min-w-0 pr-3">
                                 <div class="text-xs text-[#93A3B2] uppercase font-bold tracking-wider" x-text="item.category"></div>
-                                <div class="text-sm font-bold text-[#153758] group-hover:text-[#264868] truncate" x-text="item.label"></div>
+                                <div class="text-sm font-bold truncate" :class="selectedIndex === idx ? 'text-[#264868]' : 'text-[#153758]'" x-text="item.label"></div>
                             </div>
                             <svg class="w-4 h-4 text-[#93A3B2] group-hover:text-[#264868] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
@@ -120,6 +129,7 @@ function searchModal(links) {
     return {
         query: '',
         allLinks: links,
+        selectedIndex: 0,
         get filteredResults() {
             if (!this.query.trim()) {
                 return this.allLinks.slice(0, 10);
@@ -128,6 +138,13 @@ function searchModal(links) {
             return this.allLinks.filter(item => 
                 item.label.toLowerCase().includes(q) || item.category.toLowerCase().includes(q)
             ).slice(0, 20);
+        },
+        navigateSelected() {
+            const results = this.filteredResults;
+            if (results && results[this.selectedIndex]) {
+                window.location.href = results[this.selectedIndex].href;
+                searchOpen = false;
+            }
         }
     }
 }

@@ -13,6 +13,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        $middleware->append(\App\Http\Middleware\SecurityHeadersMiddleware::class);
+
+        $middleware->validateCsrfTokens(except: [
+            'api/submit-lead',
+        ]);
+
         $middleware->alias([
             'admin.auth' => \App\Http\Middleware\AdminAuthMiddleware::class,
             'admin.role' => \App\Http\Middleware\AdminRoleMiddleware::class,

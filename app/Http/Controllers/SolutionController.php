@@ -27,9 +27,13 @@ class SolutionController extends Controller
             abort(404);
         }
 
+        $solution = $allSolutions[$slug];
+        $title = $solution['heroTitle'] ?? $solution['title'] ?? 'Enterprise Technology Solution';
+
         return view('pages.solutions.show', [
-            'solution' => $allSolutions[$slug],
+            'solution' => $solution,
             'slug' => $slug,
+            'title' => $title,
         ]);
     }
 }

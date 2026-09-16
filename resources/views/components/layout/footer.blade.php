@@ -19,7 +19,7 @@
                 </p>
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto" x-data="{ newsletterEmail: '', subscribed: false }">
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full lg:w-auto" x-data="newsletterForm()">
                 <button
                     @click="consultationOpen = true"
                     class="w-full sm:w-auto px-6 py-3.5 bg-[#C1A972] hover:bg-[#D9C48F] text-[#153758] font-extrabold text-xs uppercase tracking-wider rounded-xl transition-all shadow-lg hover:shadow-[#C1A972]/20 flex items-center justify-center gap-2"
@@ -29,19 +29,21 @@
                 </button>
 
                 <!-- Newsletter Subscription Form -->
-                <form @submit.prevent="if (newsletterEmail.trim()) { subscribed = true; setTimeout(() => subscribed = false, 5000); newsletterEmail = ''; }" class="relative w-full sm:w-80 flex items-center">
+                <form @submit.prevent="submitNewsletter()" class="relative w-full sm:w-80 flex items-center">
                     <input
                         type="email"
                         required
+                        maxlength="100"
                         x-model="newsletterEmail"
                         placeholder="Enter work email for insights"
                         class="w-full pl-4 pr-24 py-3.5 rounded-xl bg-[#0F2334]/90 border border-[#153758] text-white placeholder-[#93A3B2] text-xs focus:outline-none focus:border-[#C1A972] transition-all"
                     />
                     <button
                         type="submit"
-                        class="absolute right-1.5 px-3 py-2 bg-[#264868] hover:bg-[#153758] text-white font-bold text-[11px] rounded-lg transition-all flex items-center gap-1.5 border border-white/10"
+                        :disabled="submitting"
+                        class="absolute right-1.5 px-3 py-2 bg-[#264868] hover:bg-[#153758] text-white font-bold text-[11px] rounded-lg transition-all flex items-center gap-1.5 border border-white/10 disabled:opacity-60"
                     >
-                        <span>Subscribe</span>
+                        <span x-text="submitting ? '...' : 'Subscribe'"></span>
                         <svg class="w-3 h-3 text-[#D9C48F]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
                     </button>
                 </form>
@@ -52,6 +54,7 @@
             <svg class="w-4 h-4 text-[#C1A972]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             <span>Thank you for subscribing to Octavia Tech Insights! Check your inbox shortly.</span>
         </div>
+        <div x-show="errorMessage" x-cloak x-text="errorMessage" class="max-w-7xl mx-auto mt-2 text-xs text-red-400 text-center"></div>
     </div>
 
     <!-- Main Multi-Column Footer Grid -->
@@ -62,12 +65,12 @@
             <div class="lg:col-span-4 space-y-6">
                 <a href="/" class="flex items-center gap-2" aria-label="Octavia Tech Solutions — home">
                     <span class="inline-flex items-center rounded-xl bg-[#FEFEFE] px-3 py-1.5 shadow-md shadow-black/20">
-                        <span class="font-extrabold text-2xl tracking-tight text-[#153758]">Octavia</span>
+                        <img src="/assets/octavia-logo.png" alt="Octavia Tech Solutions" class="h-8 sm:h-9 w-auto object-contain" width="502" height="173" />
                     </span>
                 </a>
 
                 <p class="text-[#B4C1CD] text-xs leading-relaxed max-w-sm">
-                    Codinix-grade software development & enterprise IT consulting. Engineering secure cloud platforms, AI integrations, CRM/ERP modernizations, and 24/7 managed infrastructure worldwide.
+                    Enterprise-grade software development & IT consulting. Engineering secure cloud platforms, AI integrations, CRM/ERP modernizations, and 24/7 managed infrastructure worldwide.
                 </p>
 
                 <!-- Certifications & Badges Row -->
@@ -179,7 +182,7 @@
                 <div class="space-y-1.5 pt-2 border-t border-[#153758]">
                     <div class="flex items-center gap-2 text-[#B4C1CD]">
                         <svg class="w-3.5 h-3.5 text-[#D9C48F] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                        <a href="mailto:connect@codinix.com" class="hover:text-white transition-colors truncate">connect@codinix.com</a>
+                        <a href="mailto:connect@octaviatechnologies.com" class="hover:text-white transition-colors truncate">connect@octaviatechnologies.com</a>
                     </div>
                     <div class="flex items-center gap-2 text-[#B4C1CD]">
                         <svg class="w-3.5 h-3.5 text-[#D9C48F] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -195,7 +198,7 @@
 
         <!-- Bottom Bar: Copyright & Legal -->
         <div class="pt-8 border-t border-[#153758] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-[#B4C1CD]">
-            <p>© {{ date('Y') }} Octavia Tech Solutions / Codinix. All rights reserved.</p>
+            <p>© {{ date('Y') }} Octavia Tech Solutions. All rights reserved.</p>
 
             <div class="flex flex-wrap items-center gap-6">
                 <a href="/privacy-policy" class="hover:text-white transition-colors">Privacy Policy</a>
@@ -216,3 +219,49 @@
         </div>
     </div>
 </footer>
+
+<script>
+function newsletterForm() {
+    return {
+        newsletterEmail: '',
+        submitting: false,
+        subscribed: false,
+        errorMessage: '',
+        async submitNewsletter() {
+            if (!this.newsletterEmail.trim()) return;
+            this.submitting = true;
+            this.errorMessage = '';
+            try {
+                const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+                const res = await fetch('/api/submit-lead', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        email: this.newsletterEmail.trim(),
+                        sourceForm: 'Newsletter Pre-Footer',
+                        sourceUrl: window.location.href,
+                        serviceCategory: 'Tech Insights Newsletter'
+                    })
+                });
+                const data = await res.json();
+                if (res.ok && data.success) {
+                    this.subscribed = true;
+                    this.newsletterEmail = '';
+                    setTimeout(() => this.subscribed = false, 6000);
+                } else {
+                    this.errorMessage = data.message || 'Subscription failed. Please check your email.';
+                }
+            } catch (e) {
+                this.errorMessage = 'Network error. Please try again.';
+            } finally {
+                this.submitting = false;
+            }
+        }
+    };
+}
+</script>

@@ -85,13 +85,15 @@ class LeadController extends Controller
         AuditLogger::log('LEADS_EXPORTED', "Leads dataset exported to CSV by admin");
 
         $headers = [
-            'Content-Type' => 'text/csv',
+            'Content-Type' => 'text/csv; charset=UTF-8',
             'Content-Disposition' => 'attachment; filename="leads_export_' . date('Y-m-d_His') . '.csv"',
         ];
 
         return Response::stream(function () {
             $handle = fopen('php://output', 'w');
-            fputcsv($handle, ['Submission ID', 'Full Name', 'Email', 'Phone', 'Company', 'Service Category', 'Status', 'Message', 'Source Form', 'Source URL', 'IP Address', 'Created At']);
+            // Write UTF-8 BOM for Microsoft Excel compatibility
+            fwrite($handle, "\xEF\xBB\xBF");
+            fputcsv($handle, ['Submission ID', 'Full Name', 'Email', 'Phone', 'Company', 'Service Category', 'Status', 'Message', 'Source Form', 'Source URL', 'IP Address', 'Created At'], ',', '"', '\\');
 
             Lead::orderByDesc('id')->chunk(200, function ($leads) use ($handle) {
                 foreach ($leads as $lead) {
@@ -108,11 +110,26 @@ class LeadController extends Controller
                         $lead->source_url,
                         $lead->ip_address,
                         $lead->created_at?->toDateTimeString(),
-                    ]);
+                    ], ',', '"', '\\');
                 }
             });
 
             fclose($handle);
         }, 200, $headers);
+    }
+
+    /**
+     * Download Excel (.xlsx) spreadsheet of all leads.
+     */
+    public function exportExcel(\App\Services\LeadSpreadsheetService $spreadsheetService): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+        AuditLogger::log('LEADS_EXCEL_EXPORTED', "Leads dataset exported to XLSX Excel sheet by admin");
+
+        $spreadsheetService->syncAllLeads();
+        $xlsxPath = $spreadsheetService->getXlsxPath();
+
+        return response()->download($xlsxPath, 'octavia_leads_' . date('Y-m-d_His') . '.xlsx', [
+            'Content-Type' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        ]);
     }
 }

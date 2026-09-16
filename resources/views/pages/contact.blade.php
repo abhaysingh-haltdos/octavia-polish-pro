@@ -111,6 +111,7 @@
                                     <input
                                         type="text"
                                         required
+                                        maxlength="100"
                                         x-model="formData.fullName"
                                         placeholder="e.g. Alex Morgan"
                                         class="w-full bg-white/5 border border-white/15 focus:border-[#C1A972] focus:bg-white/10 text-white rounded-xl pl-10 pr-4 py-3 text-sm transition-all focus:outline-none placeholder-[#5C6B7A]"
@@ -127,6 +128,7 @@
                                     <input
                                         type="email"
                                         required
+                                        maxlength="100"
                                         x-model="formData.workEmail"
                                         placeholder="alex@company.com"
                                         class="w-full bg-white/5 border border-white/15 focus:border-[#C1A972] focus:bg-white/10 text-white rounded-xl pl-10 pr-4 py-3 text-sm transition-all focus:outline-none placeholder-[#5C6B7A]"
@@ -146,6 +148,7 @@
                                     <input
                                         type="text"
                                         required
+                                        maxlength="100"
                                         x-model="formData.company"
                                         placeholder="e.g. Acme Corp"
                                         class="w-full bg-white/5 border border-white/15 focus:border-[#C1A972] focus:bg-white/10 text-white rounded-xl pl-10 pr-4 py-3 text-sm transition-all focus:outline-none placeholder-[#5C6B7A]"
@@ -209,6 +212,7 @@
                             </label>
                             <textarea
                                 required
+                                maxlength="5000"
                                 rows="4"
                                 x-model="formData.message"
                                 placeholder="Share your technical goals, target timeline, key requirements, or questions..."
@@ -706,8 +710,9 @@ function contactPage() {
             this.captchaNum2 = Math.floor(Math.random() * 8) + 1;
         },
 
-        submitContactForm() {
-            if (parseInt(this.captchaInput) !== (this.captchaNum1 + this.captchaNum2)) {
+        async submitContactForm() {
+            const expectedSum = this.captchaNum1 + this.captchaNum2;
+            if (parseInt(this.captchaInput, 10) !== expectedSum) {
                 this.formError = 'Incorrect security check answer. Please try again.';
                 return;
             }
@@ -715,10 +720,44 @@ function contactPage() {
             this.formError = null;
             this.isSubmitting = true;
 
-            setTimeout(() => {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content') || '';
+
+            try {
+                const res = await fetch('/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        fullName: this.formData.fullName,
+                        workEmail: this.formData.workEmail,
+                        company: this.formData.company,
+                        country: this.formData.country,
+                        topic: this.formData.topic,
+                        message: this.formData.message,
+                        sourceForm: 'Main Contact Page',
+                        sourceUrl: window.location.href,
+                        userCaptchaAnswer: parseInt(this.captchaInput, 10),
+                        expectedCaptchaAnswer: expectedSum
+                    })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    this.isSubmitting = false;
+                    this.isSubmitted = true;
+                } else {
+                    this.isSubmitting = false;
+                    this.formError = data.message || (data.errors ? Object.values(data.errors).flat().join(' ') : 'Submission failed. Please verify your entries.');
+                }
+            } catch (err) {
                 this.isSubmitting = false;
-                this.isSubmitted = true;
-            }, 1000);
+                this.formError = 'A network error occurred while submitting your message. Please try again or reach out directly.';
+            }
         }
     }
 }

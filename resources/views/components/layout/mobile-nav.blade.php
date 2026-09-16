@@ -19,14 +19,20 @@
 <div
     x-show="mobileNavOpen"
     x-cloak
+    role="dialog"
+    aria-modal="true"
+    aria-label="Mobile Navigation Drawer"
+    @keydown.escape.window="mobileNavOpen = false"
     class="fixed inset-0 z-[1050] bg-[#0F2334]/95 backdrop-blur-2xl flex flex-col overflow-y-auto lg:hidden"
     id="mobile-navigation-overlay"
     x-data="{ expandedSection: null }"
 >
     <!-- Mobile Top Header -->
     <div class="flex items-center justify-between px-6 py-5 border-b border-white/10">
-        <a href="/" class="flex items-center gap-2">
-            <span class="font-extrabold text-2xl text-white tracking-tight">Octavia</span>
+        <a href="/" class="flex items-center gap-2" aria-label="Octavia Tech Solutions — home">
+            <span class="flex items-center rounded-xl bg-[#FEFEFE] px-2.5 py-1.5 shadow-md shadow-black/20">
+                <img src="/assets/octavia-logo.png" width="502" height="173" alt="Octavia Tech Solutions" class="h-8 w-auto shrink-0 object-contain" />
+            </span>
         </a>
         <button
             @click="mobileNavOpen = false"

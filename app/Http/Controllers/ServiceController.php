@@ -19,7 +19,7 @@ class ServiceController extends Controller
     /**
      * Display specific service details by path/slug
      */
-    public function show(string $path): View
+    public function show(string $path): View|\Illuminate\Http\RedirectResponse
     {
         $servicesPath = storage_path('app/services.json');
         $servicesData = File::exists($servicesPath) ? json_decode(File::get($servicesPath), true) : [];
@@ -30,7 +30,22 @@ class ServiceController extends Controller
 
         if (!empty($servicesData[$cleanSlug])) {
             $service = $servicesData[$cleanSlug];
+            $canonicalSlug = $cleanSlug;
         } elseif (!empty($servicesData[$lastSegment])) {
+            // Find canonical full key in servicesData that matches lastSegment
+            $canonicalSlug = null;
+            foreach (array_keys($servicesData) as $k) {
+                if ($k === $lastSegment || str_ends_with($k, '/' . $lastSegment)) {
+                    $canonicalSlug = $k;
+                    break;
+                }
+            }
+            $canonicalSlug = $canonicalSlug ?: $lastSegment;
+
+            // Enforce 301 permanent redirect if accessed via irregular/duplicate path prefix
+            if ($cleanSlug !== $canonicalSlug) {
+                return redirect('/services/' . $canonicalSlug, 301);
+            }
             $service = $servicesData[$lastSegment];
         } else {
             abort(404);

@@ -84,6 +84,9 @@ $categories = [
                     <img
                         src="{{ $item['iconUrl'] }}"
                         alt="{{ $item['name'] }}"
+                        width="48"
+                        height="48"
+                        loading="lazy"
                         class="w-12 h-12 mb-3 object-contain filter group-hover:scale-110 transition-transform duration-300"
                         onerror="this.style.display='none'"
                     />

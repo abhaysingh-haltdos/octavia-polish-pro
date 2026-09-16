@@ -32,9 +32,12 @@ $partners = [
                     <div class="flex items-center justify-center shrink-0 opacity-70 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0 cursor-pointer">
                         <img
                             src="{{ $p['logo'] }}"
-                            alt="{{ $p['name'] }}"
+                            alt="{{ $p['name'] }} logo"
+                            width="120"
+                            height="32"
+                            loading="lazy"
                             class="h-7 sm:h-8 w-auto object-contain max-w-[120px] filter invert brightness-200"
-                            onerror="this.style.display='none'"
+                            onerror="this.style.display='none'; this.nextElementSibling?.classList.remove('hidden');"
                         />
                         <span class="text-[#93A3B2] font-semibold text-sm ml-2 hidden sm:inline">
                             {{ $p['name'] }}

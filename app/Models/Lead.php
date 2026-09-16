@@ -24,4 +24,18 @@ class Lead extends Model
         'ip_address',
         'user_agent',
     ];
+
+    /**
+     * The "booted" method of the model.
+     */
+    protected static function booted(): void
+    {
+        static::created(function (Lead $lead) {
+            try {
+                app(\App\Services\LeadSpreadsheetService::class)->appendLead($lead);
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning('Failed to sync lead to spreadsheet: ' . $e->getMessage());
+            }
+        });
+    }
 }

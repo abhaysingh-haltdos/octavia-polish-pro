@@ -27,9 +27,13 @@ class IndustryController extends Controller
             abort(404);
         }
 
+        $industry = $allIndustries[$slug];
+        $title = $industry['heroTitle'] ?? $industry['shortTitle'] ?? 'Enterprise Industry Solution';
+
         return view('pages.industries.show', [
-            'industry' => $allIndustries[$slug],
+            'industry' => $industry,
             'slug' => $slug,
+            'title' => $title,
         ]);
     }
 }

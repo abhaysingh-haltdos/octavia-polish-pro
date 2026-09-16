@@ -56,11 +56,11 @@ $testimonials = [
 
             <!-- Carousel Arrows -->
             <div class="flex items-center gap-3 self-start md:self-end shrink-0">
-                <button @click="scrollPrev()" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"></path></svg>
+                <button @click="scrollPrev()" aria-label="Previous testimonial" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button @click="scrollNext()" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg>
+                <button @click="scrollNext()" aria-label="Next testimonial" class="p-3 rounded-full bg-white/5 border border-white/10 hover:bg-[#C1A972]/20 hover:border-[#C1A972]/40 text-[#FEFEFE] hover:text-white transition-all duration-200 active:scale-95">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
         </div>

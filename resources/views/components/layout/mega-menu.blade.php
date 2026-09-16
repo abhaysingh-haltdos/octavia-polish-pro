@@ -24,6 +24,7 @@
                             <button
                                 type="button"
                                 @mouseenter="activeCategoryIndex = {{ $idx }}"
+                                @focus="activeCategoryIndex = {{ $idx }}"
                                 :class="activeCategoryIndex === {{ $idx }} ? 'bg-[#F0F4F8] text-[#153758] font-bold border-l-4 border-[#153758]' : 'text-[#5C6B7A] hover:bg-[#F0F4F8] hover:text-[#153758]'"
                                 class="w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all duration-150 flex items-center justify-between cursor-pointer"
                             >

@@ -49,7 +49,7 @@ class MediaController extends Controller
                 'required',
                 'file',
                 'max:10240', // 10MB
-                'mimes:jpeg,png,jpg,webp,svg,gif,avif',
+                'mimes:jpeg,png,jpg,webp,gif,avif',
             ],
             'alt_text' => ['nullable', 'string', 'max:255'],
             'title' => ['nullable', 'string', 'max:255'],
@@ -60,10 +60,10 @@ class MediaController extends Controller
         // Security: Block any executable extension or double extension (e.g. file.php.jpg)
         $clientName = $uploadedFile->getClientOriginalName();
         $ext = strtolower($uploadedFile->getClientOriginalExtension());
-        $forbiddenExtensions = ['php', 'phtml', 'phar', 'php3', 'php4', 'php5', 'php7', 'php8', 'exe', 'bat', 'sh', 'js', 'py', 'pl', 'cgi'];
+        $forbiddenExtensions = ['php', 'phtml', 'phar', 'php3', 'php4', 'php5', 'php7', 'php8', 'exe', 'bat', 'sh', 'js', 'py', 'pl', 'cgi', 'svg', 'html', 'htm', 'xml'];
 
-        if (in_array($ext, $forbiddenExtensions) || preg_match('/\.(php[0-9]?|phtml|phar|exe|bat|sh|js)$/i', $clientName)) {
-            abort(403, 'Dangerous file type detected.');
+        if (in_array($ext, $forbiddenExtensions) || preg_match('/\.(php[0-9]?|phtml|phar|exe|bat|sh|js|svg|html?|xml)$/i', $clientName)) {
+            abort(403, 'Dangerous or unsupported file type detected.');
         }
 
         // Generate safe unique filename
