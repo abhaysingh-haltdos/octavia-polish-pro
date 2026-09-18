@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\SettingController as AdminSettingController;
 use App\Http\Controllers\Admin\TagController as AdminTagController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\CaseStudyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContentApiController;
@@ -71,7 +72,12 @@ Route::get('/privacy-policy', [PageController::class, 'privacy'])->name('privacy
 Route::get('/terms-of-service', [PageController::class, 'terms'])->name('terms');
 Route::get('/cookie-policy', [PageController::class, 'cookie'])->name('cookie');
 Route::get('/sitemap', [PageController::class, 'sitemap'])->name('sitemap');
-Route::get('/careers', fn() => redirect('/about-us#careers'));
+// 8. Careers & Talent Hub
+Route::get('/careers', [CareerController::class, 'index'])->name('careers.index');
+Route::get('/career', [CareerController::class, 'index']);
+Route::get('/career/{slug}', [CareerController::class, 'show'])->name('careers.show');
+Route::get('/careers/{slug}', [CareerController::class, 'show']);
+Route::post('/career/apply', [CareerController::class, 'apply'])->middleware('throttle:10,1')->name('careers.apply');
 Route::get('/process', fn() => redirect('/services'));
 
 // 9. Services Catalog & Wildcard Dynamic Subpages

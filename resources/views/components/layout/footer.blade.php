@@ -144,7 +144,7 @@
                     <li><a href="/about-us" class="hover:text-white transition-colors block">About Octavia</a></li>
                     <li><a href="/case-studies" class="hover:text-white transition-colors block">Case Studies & ROI</a></li>
                     <li><a href="/services" class="hover:text-white transition-colors block">Delivery Process</a></li>
-                    <li><a href="/about-us#careers" class="hover:text-white transition-colors flex items-center gap-1.5">Careers <span class="text-[9px] font-bold bg-[#264868] text-[#D9C48F] px-1.5 py-0.5 rounded uppercase">Hiring</span></a></li>
+                    <li><a href="/careers" class="hover:text-white transition-colors flex items-center gap-1.5">Careers <span class="text-[9px] font-bold bg-[#264868] text-[#D9C48F] px-1.5 py-0.5 rounded uppercase">Hiring</span></a></li>
                     <li><a href="/blog" class="hover:text-white transition-colors block">Insights & Whitepapers</a></li>
                     <li><a href="/contact" class="hover:text-white transition-colors block">Contact Us</a></li>
                 </ul>

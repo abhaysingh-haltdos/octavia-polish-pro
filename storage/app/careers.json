@@ -1,0 +1,319 @@
+{
+    "chat-support-profile": {
+        "slug": "chat-support-profile",
+        "title": "Chat Support Executive",
+        "department": "Business Development & Support",
+        "badge": "Customer Support",
+        "experience": "0\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Connect with prospective clients through online channels and live chat to qualify enterprise technology inquiries.",
+        "aboutRole": "We are seeking an articulate, motivated Chat Support Executive to engage potential enterprise clients across LinkedIn, live chat, and digital channels. In this role, you will be the initial touchpoint for executives, founders, and IT decision-makers inquiring about Custom Software Development, AI Integrations, Cloud Solutions, and Dedicated Engineering Teams. You will communicate technical capabilities clearly, qualify prospective requirements, and coordinate seamless discovery sessions with our Solutions Architecture team.",
+        "responsibilities": [
+            "Engage with prospective global clients through LinkedIn, real-time website chat, and digital channels.",
+            "Initiate high-context technical conversations, qualify enterprise requirements, and schedule discovery meetings for Solutions Architects.",
+            "Articulate Octavia's custom software engineering, AI/ML, cloud enablement, and team extension capabilities.",
+            "Nurture inbound prospects and follow up promptly through structured, professional chat-based communication.",
+            "Maintain meticulous CRM records, logging client requirements, conversation context, and engagement touchpoints.",
+            "Collaborate cross-functionally with Sales, Marketing, and Engineering Leads to ensure smooth client handovers.",
+            "Achieve weekly and monthly qualified lead discovery milestones."
+        ],
+        "qualifications": [
+            "0\u20133 years of experience in Live Chat Support, Lead Generation, BPO, or Technical Business Development.",
+            "Exceptional written and verbal English communication skills with high business acumen.",
+            "Hands-on experience with LinkedIn outreach, Sales Navigator, and online research is an advantage.",
+            "Familiarity with CRM tools (HubSpot, Salesforce, or similar) and modern productivity suites.",
+            "Self-driven, detail-oriented, and eager to accelerate career growth in high-velocity enterprise IT."
+        ],
+        "skills": [
+            "Written English",
+            "Live Chat Support",
+            "Lead Qualification",
+            "LinkedIn Outreach",
+            "CRM Management",
+            "Enterprise Tech Solutions",
+            "Client Engagement",
+            "Communication"
+        ],
+        "perks": [
+            "Competitive compensation with attractive performance incentives",
+            "Clear advancement track into Account Management or Technical Sales",
+            "Mentorship from seasoned enterprise tech leaders",
+            "Comprehensive medical insurance coverage",
+            "Subsidized skill development & learning certifications"
+        ]
+    },
+    "social-media-strategist-profile": {
+        "slug": "social-media-strategist-profile",
+        "title": "Social Media Strategist",
+        "department": "Marketing & Brand",
+        "badge": "Marketing",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Grow Octavia's global brand presence through data-driven technical content, creative campaigns, and digital storytelling.",
+        "aboutRole": "As a Social Media Strategist, you will lead the strategic narrative for Octavia Tech Solutions across digital channels. You will collaborate with engineering teams, design leads, and executive leadership to showcase our engineering achievements, case studies, AI innovations, and team culture to an international audience.",
+        "responsibilities": [
+            "Develop and execute organic growth strategies across LinkedIn, Twitter/X, Instagram, and YouTube.",
+            "Translate complex software engineering projects and technical insights into digestible, high-engagement content.",
+            "Coordinate with UI/UX designers and video editors to create visually compelling thought leadership assets.",
+            "Monitor analytics, audience sentiment, and platform algorithms to continually optimize campaign ROI.",
+            "Manage community engagement, comment interactions, and outreach to industry influencers."
+        ],
+        "qualifications": [
+            "1\u20133 years of demonstrable social media marketing experience in B2B tech, SaaS, or agency environments.",
+            "Superb storytelling skills and deep familiarity with LinkedIn content algorithms and technical communities.",
+            "Hands-on proficiency with analytics tools, Buffer/Hootsuite, Canva, and social listening platforms.",
+            "Strong aesthetic sensibility and attention to brand guidelines."
+        ],
+        "skills": [
+            "B2B Social Strategy",
+            "Copywriting & Storytelling",
+            "LinkedIn Growth",
+            "Content Analytics",
+            "Visual Direction",
+            "Community Building"
+        ],
+        "perks": [
+            "High-visibility role directly influencing global brand recognition",
+            "Budget for creative experimentation and campaign tools",
+            "Flexible hybrid working environment",
+            "Health & wellness benefits"
+        ]
+    },
+    "seo-specialist-profile": {
+        "slug": "seo-specialist-profile",
+        "title": "SEO Specialist",
+        "department": "Digital Marketing",
+        "badge": "SEO",
+        "experience": "2\u20134 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Boost high-intent organic visibility and inbound pipeline through technical SEO, content architecture, and strategic keyword optimization.",
+        "aboutRole": "We are seeking a data-driven SEO Specialist to drive international organic search dominance for Octavia's technology services, industry hubs, and technical insights. You will work directly with web developers and content strategists to execute technical optimizations, schema architectures, and high-authority link acquisitions.",
+        "responsibilities": [
+            "Conduct in-depth technical audits including crawlability, Core Web Vitals, site hierarchy, and indexation hygiene.",
+            "Execute high-intent keyword research targeting enterprise buyers in US, Europe, and GCC markets.",
+            "Collaborate with developers to implement structured data (JSON-LD), canonical directives, and performance enhancements.",
+            "Track and report on rankings, organic impressions, CTR, and conversion attribution using GA4 and GSC."
+        ],
+        "qualifications": [
+            "2\u20134 years of proven hands-on SEO success in tech or B2B professional services.",
+            "Proficiency in tools like Ahrefs, SEMrush, Screaming Frog, Google Search Console, and Google Analytics 4.",
+            "Strong understanding of technical SEO: Core Web Vitals, schema markup, and headless/Laravel architectures.",
+            "Knowledge of white-hat digital PR and high-authority link acquisition strategies."
+        ],
+        "skills": [
+            "Technical SEO",
+            "Core Web Vitals",
+            "Schema.org & JSON-LD",
+            "Keyword Strategy",
+            "Google Search Console",
+            "Ahrefs / SEMrush",
+            "Competitor Analysis"
+        ],
+        "perks": [
+            "Direct ownership of high-impact global digital campaigns",
+            "Access to enterprise-grade analytics and SEO software",
+            "Performance incentives tied to organic conversion milestones",
+            "Comprehensive medical insurance"
+        ]
+    },
+    "devops-engineer-profile": {
+        "slug": "devops-engineer-profile",
+        "title": "DevOps Engineer",
+        "department": "Engineering & Cloud",
+        "badge": "Engineering",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Automate CI/CD pipelines, orchestrate Kubernetes clusters, and scale cloud infrastructure for resilient enterprise deployments.",
+        "aboutRole": "We are looking for a skilled DevOps Engineer to support our cloud engineering practice. You will be responsible for standardizing automated deployment pipelines, managing multi-region AWS/GCP infrastructures, and ensuring zero-downtime reliability for mission-critical client applications.",
+        "responsibilities": [
+            "Build and maintain robust CI/CD pipelines using GitHub Actions, GitLab CI, or Jenkins.",
+            "Provision and configure infrastructure-as-code using Terraform and Ansible.",
+            "Administer and monitor containerized workloads on Kubernetes (EKS/GKE) and Docker.",
+            "Implement comprehensive monitoring, alerting, and logging using Prometheus, Grafana, and ELK/Loki.",
+            "Enforce zero-trust security postures, IAM policies, and automated vulnerability scanning."
+        ],
+        "qualifications": [
+            "1\u20133 years of professional experience in cloud engineering, Linux system administration, or DevOps.",
+            "Solid knowledge of AWS or Google Cloud core services (VPC, EC2, ECS/EKS, RDS, S3, IAM).",
+            "Proficiency with Docker, Kubernetes, and Infrastructure-as-Code (Terraform).",
+            "Scripting proficiency in Bash, Python, or Go.",
+            "Strong problem-solving and root-cause analysis skills."
+        ],
+        "skills": [
+            "Kubernetes & Docker",
+            "AWS / GCP Cloud",
+            "Terraform / IaC",
+            "CI/CD Automation",
+            "Linux SysAdmin",
+            "Prometheus & Grafana",
+            "Security & IAM"
+        ],
+        "perks": [
+            "Company-funded AWS / GCP / CKA certification vouchers",
+            "Work with cutting-edge microservices & multi-cloud architectures",
+            "Top-tier modern hardware (MacBook Pro / Linux workstations)",
+            "Collaborative, high-trust engineering culture"
+        ]
+    },
+    "ui-ux-designer-profile": {
+        "slug": "ui-ux-designer-profile",
+        "title": "UI/UX Designer",
+        "department": "Product Design",
+        "badge": "Design",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Design intuitive, enterprise-grade digital experiences, design systems, and clickable prototypes that solve complex business workflows.",
+        "aboutRole": "As a UI/UX Designer at Octavia, you will craft beautiful, highly functional digital products for enterprise clients worldwide. You will partner with product owners, solutions architects, and frontend engineers to transform complex user requirements into elegant interfaces.",
+        "responsibilities": [
+            "Create high-fidelity wireframes, interactive user flows, and Figma design prototypes.",
+            "Develop and maintain scalable design systems with reusable components and documented tokens.",
+            "Conduct user research, persona creation, heuristic evaluations, and usability testing.",
+            "Collaborate closely with frontend engineers to ensure pixel-perfect design implementation.",
+            "Present design rationale clearly to international stakeholders and clients."
+        ],
+        "qualifications": [
+            "1\u20133 years of experience designing web applications, mobile apps, or enterprise SaaS products.",
+            "Mastery of Figma, including auto-layout, components, variables, and prototyping interactions.",
+            "Strong portfolio demonstrating clean visual design, information hierarchy, and user-centric problem solving.",
+            "Familiarity with responsive web standards, accessibility (WCAG), and modern UI frameworks."
+        ],
+        "skills": [
+            "Figma & FigJam",
+            "Design Systems",
+            "Wireframing & Prototyping",
+            "User Journey Mapping",
+            "Responsive Layouts",
+            "Accessibility (WCAG)",
+            "Visual Design"
+        ],
+        "perks": [
+            "Creative freedom to innovate and establish design standards",
+            "Figma Professional licenses and premium asset subscriptions",
+            "Opportunity to design products for international brands",
+            "Modern ergonomic workstation setup"
+        ]
+    },
+    "it-recruiter-profile": {
+        "slug": "it-recruiter-profile",
+        "title": "IT Recruiter",
+        "department": "People & Culture",
+        "badge": "Engineering",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Identify, source, and attract senior software engineers, cloud specialists, and tech leaders to scale our global talent footprint.",
+        "aboutRole": "We are seeking an enthusiastic IT Recruiter to join our talent acquisition team. You will lead the end-to-end recruitment lifecycle for senior software engineers, DevOps specialists, UI/UX designers, and tech consultants across our US, West Africa, and India delivery centers.",
+        "responsibilities": [
+            "Source passive and active technical candidates across LinkedIn, GitHub, tech communities, and referrals.",
+            "Screen candidate resumes, conduct preliminary behavioral assessments, and evaluate cultural fit.",
+            "Coordinate technical interviews, coding evaluations, and stakeholder debriefs.",
+            "Manage offer negotiations, compensation benchmarking, and smooth onboarding workflows.",
+            "Build a robust pipeline of high-caliber engineers for rapid staff augmentation deployments."
+        ],
+        "qualifications": [
+            "1\u20133 years of tech recruitment experience in an IT services firm, product startup, or staffing agency.",
+            "Strong comprehension of software engineering roles (Full Stack, Mobile, Cloud, AI/ML, QA).",
+            "Proven track record of closing technical roles with high candidate satisfaction.",
+            "Excellent negotiation, networking, and interpersonal communication skills."
+        ],
+        "skills": [
+            "Technical Sourcing",
+            "LinkedIn Recruiter",
+            "Candidate Screening",
+            "Compensation Negotiation",
+            "ATS Management",
+            "Talent Pipeline Building",
+            "Candidate Experience"
+        ],
+        "perks": [
+            "Rewarding placement bonus incentives above base salary",
+            "Opportunity to build relationships with elite global tech talent",
+            "Fast-track growth into Talent Acquisition Leadership",
+            "Supportive, high-energy work environment"
+        ]
+    },
+    "flutter-developer-profile": {
+        "slug": "flutter-developer-profile",
+        "title": "Flutter Developer",
+        "department": "Mobile Engineering",
+        "badge": "Engineering",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Build high-performance, cross-platform mobile applications for iOS and Android with elegant animations and clean state management.",
+        "aboutRole": "As a Flutter Developer at Octavia, you will engineer fluid, responsive mobile experiences for clients spanning FinTech, Healthcare, Logistics, and E-Commerce. You will work in an agile squad delivering maintainable Dart code with state-of-the-art architecture.",
+        "responsibilities": [
+            "Develop cross-platform mobile apps for iOS and Android utilizing Flutter & Dart.",
+            "Implement robust state management architectures using BLoC, Riverpod, or Provider.",
+            "Integrate RESTful APIs, GraphQL endpoints, WebSockets, and third-party SDKs.",
+            "Write clean, testable, and documented code with unit and integration test suites.",
+            "Ensure seamless deployment to Google Play Store and Apple App Store."
+        ],
+        "qualifications": [
+            "1\u20133 years of professional experience developing and publishing Flutter applications.",
+            "Proficient understanding of Dart language fundamentals, asynchronous programming, and widget lifecycles.",
+            "Hands-on experience with native iOS/Android platform channels when required.",
+            "Familiarity with CI/CD tools (Fastlane, Codemagic, GitHub Actions) for automated mobile builds."
+        ],
+        "skills": [
+            "Flutter & Dart",
+            "BLoC / Riverpod",
+            "RESTful APIs & GraphQL",
+            "App Store & Play Store Deployments",
+            "Mobile UI Animations",
+            "Unit & Widget Testing",
+            "Git & CI/CD"
+        ],
+        "perks": [
+            "Direct impact on mobile applications used by hundreds of thousands of users",
+            "Subsidized device test lab and modern development hardware",
+            "Tech talk sessions and international project assignments",
+            "Comprehensive medical insurance"
+        ]
+    },
+    "quality-analyst-profile": {
+        "slug": "quality-analyst-profile",
+        "title": "Quality Analyst (QA)",
+        "department": "Quality Assurance",
+        "badge": "Engineering",
+        "experience": "1\u20133 Years",
+        "location": "Noida One, Sector 62 (Full-time)",
+        "type": "Full-time",
+        "shortDescription": "Ensure every software release meets the highest standards of reliability, performance, security, and user experience.",
+        "aboutRole": "We are seeking a detail-oriented Quality Analyst to join our QA engineering team. In this role, you will champion software quality across complex web applications, mobile platforms, and enterprise APIs, developing automated and manual test strategies that prevent regressions and guarantee flawless releases.",
+        "responsibilities": [
+            "Analyze business requirements and develop comprehensive test plans, test cases, and test matrices.",
+            "Perform thorough functional, integration, regression, boundary, and cross-browser testing.",
+            "Build automated test scripts using Playwright, Cypress, Selenium, or Postman.",
+            "Identify, document, prioritize, and verify bug fixes in collaboration with engineering squads.",
+            "Conduct non-functional testing including basic security, accessibility (WCAG), and performance audits."
+        ],
+        "qualifications": [
+            "1\u20133 years of manual and automated software testing experience across web and mobile platforms.",
+            "Strong understanding of SDLC, STLC, Agile/Scrum methodologies, and bug lifecycle.",
+            "Experience writing test automation scripts (JavaScript/TypeScript or Python preferred).",
+            "Proficiency in API testing using Postman, Swagger, or RestAssured.",
+            "Meticulous attention to detail and outstanding analytical thinking."
+        ],
+        "skills": [
+            "Manual & Automation Testing",
+            "Playwright / Cypress / Selenium",
+            "API Testing (Postman)",
+            "Test Plan Formulation",
+            "Bug Tracking (Jira)",
+            "Cross-browser Testing",
+            "Regression Testing"
+        ],
+        "perks": [
+            "Work with modern test automation stacks and continuous testing pipelines",
+            "Opportunity to transition into QA Automation Lead or SDET",
+            "Friendly, collaborative peer review culture",
+            "Health & wellness benefits"
+        ]
+    }
+}
